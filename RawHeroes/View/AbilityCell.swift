@@ -9,10 +9,10 @@ import UIKit
 
 class AbilityCell: UITableViewCell {
 
-    private let abilityNameLabel = UILabel()
-    private let abilityDescriptionLabel = UILabel()
-    private let icon = UIImageView()
-    private let playButton = UIButton()
+     let abilityNameLabel = UILabel()
+     let abilityDescriptionLabel = UILabel()
+     let icon = UIImageView()
+     let playButton = UIButton()
     
     // add a subviews() in the contentView
     // constraints between all the items
@@ -22,38 +22,44 @@ class AbilityCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(abilityNameLabel)
-        contentView.addSubview(abilityDescriptionLabel)
-        contentView.addSubview(icon)
-        contentView.addSubview(playButton)
-        print("mommmaaa")
-        
-        
-        
-        
-        
-        
-
-        
-  
-        // add subviews
-        //constraints
-        abilityNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        abilityDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        icon.translatesAutoresizingMaskIntoConstraints = false
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            abilityNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            abilityNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-        ])
-        //layout
+        addSubview(abilityNameLabel)
+        addSubview(abilityDescriptionLabel)
+        configureAbilityName()
+        configureDescriptionLabels()
+        setNameConstraints()
+        setDescriptionConstraints()
     }
-    
    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func configureAbilityName() {
+        abilityNameLabel.numberOfLines = 0
+        abilityNameLabel.adjustsFontSizeToFitWidth = true
+    }
+    
+    func configureDescriptionLabels() {
+        
+        abilityDescriptionLabel.numberOfLines = 0
+        abilityDescriptionLabel.adjustsFontSizeToFitWidth = true
+    }
+    
+    func setNameConstraints() {
+        abilityNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        abilityNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        abilityNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
+        abilityNameLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        abilityNameLabel.widthAnchor.constraint(equalTo: abilityNameLabel.heightAnchor).isActive = true
+    }
+    
+    func setDescriptionConstraints() {
+        abilityDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        abilityDescriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        abilityDescriptionLabel.leadingAnchor.constraint(equalTo: abilityNameLabel.trailingAnchor, constant: 10).isActive = true
+        abilityDescriptionLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        abilityDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
     }
     
 }

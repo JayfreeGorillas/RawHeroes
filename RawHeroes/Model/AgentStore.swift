@@ -13,7 +13,7 @@ class AgentStore {
         return URLSession(configuration: .default)
     }()
     
-    func fetchAgents(completion: @escaping (Result<[AgentData], Error>) -> Void) {
+    func fetchAgents(completion: @escaping (Result<[Agents], Error>) -> Void) {
         let url = AgentAPI.agentsURL
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -26,7 +26,7 @@ class AgentStore {
         task.resume()
     }
     
-    private func processAgentRequest(data: Data?, error: Error?) -> Result<[AgentData], Error> {
+    private func processAgentRequest(data: Data?, error: Error?) -> Result<[Agents], Error> {
         guard let jsonData = data else {
             return .failure(error!)
         }
@@ -34,3 +34,4 @@ class AgentStore {
         return AgentAPI.agents(fromJSON: jsonData)
     }
 }
+

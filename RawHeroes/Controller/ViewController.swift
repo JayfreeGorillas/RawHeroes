@@ -15,8 +15,10 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
 
     var bunchOfTesting = ["testing", "Testing", "123","456","papi"]
-    var agentNamesArr = [AgentData]()
+//    var agentNamesArr = [AgentData]()
     var agentStore = AgentStore()
+    var agentList = [Agents]()
+    var agentAbilitiesList: [(String, String)] = []
     var agentAbilityImages: UIImage?
     
 
@@ -31,20 +33,18 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         agentStore.fetchAgents { (agentResults) in
             switch agentResults {
             case let .success(agentNames):
-                self.agentNamesArr = agentNames
+               self.agentList = agentNames
        
                 
                 DispatchQueue.main.async { [self] in
-                    self.agentNamesArr = agentNames
+                   self.agentList = agentNames
                 }
                 self.valorantAgentsCollectionView.reloadData()
             case let .failure(error):
                 print("error fetching shit \(error)")
             }
         }
-        
-        
-    
+        valorantAgentsCollectionView.reloadData()
     }
     
 
@@ -57,19 +57,45 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         return layout
     }()
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return agentNamesArr.count
+        return agentList.count
+    }
+    
+    func setAgentAbilities(agent: [Agents]) -> [(String, String)] {
+        var abilities = [(String, String)]()
+        
+        for agent in agentList {
+       
+            let slotOne = (agent.slot1Name, agent.slot1Name)
+            let slotTwo = (agent.slot2Name, agent.slot2Description)
+            let slotThree = (agent.slot3Name, agent.slot3Description)
+            let ultSlot = (agent.slotUltName, agent.slotUltDescription)
+            
+//            abilities[agent.slot1Name]      = agent.slot1Description
+//            abilities[agent.slot2Name]      = agent.slot2Description
+//            abilities[agent.slot3Name]      = agent.slot3Description
+//            abilities[agent.slotUltName]    = agent.slotUltDescription
+            abilities.append(slotOne)
+            abilities.append(slotTwo)
+            abilities.append(slotThree)
+            abilities.append(ultSlot)
+            print(abilities)
+        }
+        print(abilities)
+        return abilities
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "heroes", for: indexPath) as! ValorantHeroCell
-        //downloadImage(from: agentNamesArr[indexPath.row].displayIcon)
+       // downloadImage(from: agentList[indexPath.row].displayIcon)
         
-        cell.heroNameLabel.text = agentNamesArr[indexPath.row].displayName
+        cell.heroNameLabel.text = agentList[indexPath.row].displayName
+        print(agentList[indexPath.row].displayName)
+        print(agentList[indexPath.row].descriptino)
 //        print(agentNamesArr[indexPath.row].displayName)
 //        print(agentNamesArr[indexPath.row].displayIcon)
 //        print(agentNamesArr[indexPath.row].description)
         
-        cell.heroImage.downloaded(from: agentNamesArr[indexPath.row].displayIcon)
+        cell.heroImage.downloaded(from: agentList[indexPath.row].displayIcon)
         
         
         
@@ -103,17 +129,19 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         let cell = valorantAgentsCollectionView.cellForItem(at: indexPath) as! ValorantHeroCell
         
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? AgentDetailsVC {
-            detailVC.agentDescription = agentNamesArr[indexPath.row].description
+            detailVC.agentDescription = agentList[indexPath.row].descriptino
             detailVC.image = cell.heroImage.image!
-            detailVC.title = agentNamesArr[indexPath.row].displayName
-            detailVC.agentUlt = agentNamesArr[indexPath.row].abilities[3].displayName
-            detailVC.agentAbilityThree = agentNamesArr[indexPath.row].abilities[2].displayName
-            detailVC.agentAbilityTwo = agentNamesArr[indexPath.row].abilities[1].displayName
-            detailVC.agentAbilityOne = agentNamesArr[indexPath.row].abilities[0].displayName
-            detailVC.agentAbilityOneDescription = agentNamesArr[indexPath.row].abilities[0].description
-            detailVC.agentAbilityTwoDescription = agentNamesArr[indexPath.row].abilities[1].description
-            detailVC.agentAbilityThreeDescription = agentNamesArr[indexPath.row].abilities[2].description
-            detailVC.agentAbilityUltDescription = agentNamesArr[indexPath.row].abilities[3].description
+            detailVC.title = agentList[indexPath.row].displayName
+            detailVC.agentUlt = agentList[indexPath.row].slotUltName
+            detailVC.agentAbilityThree = agentList[indexPath.row].slot3Name
+            detailVC.agentAbilityTwo = agentList[indexPath.row].slot2Name
+            detailVC.agentAbilityOne = agentList[indexPath.row].slot1Name
+            detailVC.agentAbilityOneDescription = agentList[indexPath.row].slot1Description
+            detailVC.agentAbilityTwoDescription = agentList[indexPath.row].slot2Description
+            detailVC.agentAbilityThreeDescription = agentList[indexPath.row].slot3Description
+            detailVC.agentAbilityUltDescription = agentList[indexPath.row].slotUltDescription
+            detailVC.agentAbilitiesList = agentList[indexPath.row].allAgentsAbilities
+            
 
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
@@ -125,6 +153,21 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
 
 
 }
+
+//agentStore.fetchAgents { (agentResults) in
+//    switch agentResults {
+//    case let .success(agentNames):
+//        self.agentNamesArr = agentNames
+//
+//
+//        DispatchQueue.main.async { [self] in
+//            self.agentNamesArr = agentNames
+//        }
+//        self.valorantAgentsCollectionView.reloadData()
+//    case let .failure(error):
+//        print("error fetching shit \(error)")
+//    }
+//}
 
 
 

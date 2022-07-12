@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				FE8A4AD827FF9CA700DAE4F0 /* AgentData.swift */,
-				FEF3B1ED286B81F100ABAEFF /* Agents.swift */,
 				FECC0B8528028783009C3A60 /* AgentAPI.swift */,
+				FEF3B1ED286B81F100ABAEFF /* Agents.swift */,
 				FECC0B8728028A79009C3A60 /* AgentStore.swift */,
 			);
 			path = Model;

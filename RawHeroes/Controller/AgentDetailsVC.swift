@@ -10,10 +10,11 @@ import UIKit
 class AgentDetailsVC: UIViewController {
 
     @IBOutlet var agentImage: UIImageView!
-    @IBOutlet var agentAbilitiesTV: UITableView!
     @IBOutlet var agentDescriptionLabel: UILabel!
+    var tableView = UITableView()
     
     var agentDeets = ViewController()
+    
     
     var image = UIImage()
     var agentDescription = ""
@@ -26,34 +27,28 @@ class AgentDetailsVC: UIViewController {
     var agentAbilityThree = ""
     var agentUlt = ""
     var abilityImage = UIImage()
-    var agentAbilities: [(String,String)] = []
-    //String/URL add to tuple
-    var agentAbilityDescriptions: [String] = []
-    var agentAbilitiesDict = [String: String]()
+    var agentAbilitiesList: [(String, String)] = []
     
     // have to do this
-    func addToAbilityArray() {
-        agentAbilities.append((agentAbilityOne, agentAbilityOneDescription))
-        agentAbilities.append((agentAbilityTwo, agentAbilityTwoDescription))
-        agentAbilities.append((agentAbilityThree,agentAbilityThreeDescription))
-        agentAbilities.append((agentUlt, agentAbilityUltDescription))
-    }
-    
-    func addToDescriptionArray() {
-        agentAbilityDescriptions.append(agentAbilityOneDescription)
-        agentAbilityDescriptions.append(agentAbilityTwoDescription)
-        agentAbilityDescriptions.append(agentAbilityThreeDescription)
-        agentAbilityDescriptions.append(agentAbilityUltDescription)
-    }
-    
-    func addToAgentDict() {
-        agentAbilitiesDict[agentAbilityOne] = agentAbilityOneDescription
-        agentAbilitiesDict[agentAbilityTwo] = agentAbilityTwoDescription
-        agentAbilitiesDict[agentAbilityThree] = agentAbilityThreeDescription
-        agentAbilitiesDict[agentUlt] = agentAbilityUltDescription
-    }
+
    
+    func configureTableView() {
+        view.addSubview(tableView)
+        // set the delegate
+        setTableViewProtocols()
+        // set row height
+        tableView.rowHeight = 100
+        // register cell
+        tableView.register(AbilityCell.self, forCellReuseIdentifier: "heroes")
+        
+        // set constraints
+        tableViewConstraints()
+    }
     
+    func setTableViewProtocols() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
     // MARK: - TODO pass all labels and descriptions inside the tableView if possible. not sure how to make it specific per agent yet....
     
     // MARK: - TODO Look into getting the display icon per ability.
@@ -61,54 +56,47 @@ class AgentDetailsVC: UIViewController {
     // Possibly think about adding a TableView to this view to show all agent abilities.
     override func viewDidLoad() {
         super.viewDidLoad()
-        addToAbilityArray()
-        addToDescriptionArray()
-        addToAgentDict()
-//        agentAbilitiesTV.register(AgentAbilitiesCell.nib(), forCellReuseIdentifier: AgentAbilitiesCell.identifier)
         agentImage.backgroundColor  = .systemOrange
         agentImage.image = image
         agentDescriptionLabel.text  = agentDescription
-        agentAbilitiesTV.dataSource = self
-        agentAbilitiesTV.delegate   = self
-        
-        agentAbilitiesTV.register(AbilityCell.self, forCellReuseIdentifier: "cell")
+        configureTableView()
+        print(agentAbilitiesList)
     }
-    
-
-
-
 }
 
 extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return agentAbilities.count
+        return agentAbilitiesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? AbilityCell
-        if cell == nil {
-//            cell = AbilityCell( style: , reuseIdentifier: "cell")
-//            cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
-        }
+        var cell = tableView.dequeueReusableCell(withIdentifier: "heroes") as! AbilityCell
+        
+        cell.abilityNameLabel.text = agentAbilitiesList[indexPath.row].0
+        cell.abilityDescriptionLabel.text = agentAbilitiesList[indexPath.row].1
+        
         
         // use cells from ability cell
-        cell?.textLabel?.text = "\(agentAbilities[indexPath.row].0)"
-        cell?.detailTextLabel?.text = "\(agentAbilities[indexPath.row].1)"
+//        cell?.textLabel?.text = "\(agentAbilities[indexPath.row].0)"
+//        cell?.detailTextLabel?.text = "\(agentAbilities[indexPath.row].1)"
         
-        print(agentAbilitiesDict[agentAbilityOne])
-        print(agentAbilities[indexPath.row].0)
-        print(agentAbilities[indexPath.row].1)
-        print(agentAbilityDescriptions[indexPath.row])
-        return cell!
+//        print(agentAbilitiesDict[agentAbilityOne])
+//        print(agentAbilities[indexPath.row].0)
+//        print(agentAbilities[indexPath.row].1)
+//        print(agentAbilityDescriptions[indexPath.row])
+        return cell
         }
-        
-  
-        
-        
-
     
-    
+    func tableViewConstraints() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: agentDescriptionLabel.bottomAnchor, constant: 10).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
 }
+
+

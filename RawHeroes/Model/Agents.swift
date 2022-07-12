@@ -8,10 +8,17 @@
 import Foundation
 import UIKit
 
-struct Agent {
-    let name: String
-    let description: String
-    let agentIcon: UIImage
-    let agentAbilities = [AgentAbilities]()
-
+struct Agents {
+    var displayName: String
+    var descriptino: String
+    var displayIcon: URL
+    var slot1Name: String
+    var slot1Description: String
+    var slot2Name: String
+    var slot2Description: String
+    var slot3Name: String
+    var slot3Description: String
+    var slotUltName: String
+    var slotUltDescription: String
+    var allAgentsAbilities: [(String,String)]
 }

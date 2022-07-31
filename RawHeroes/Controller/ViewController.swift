@@ -63,47 +63,13 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         return agentList.count
     }
     
-    func setAgentAbilities(agent: [Agent]) -> [(String, String)] {
-        var abilities = [(String, String)]()
-        
-        for agent in agentList {
-       
-            let slotOne = (agent.slot1Name, agent.slot1Name)
-            let slotTwo = (agent.slot2Name, agent.slot2Description)
-            let slotThree = (agent.slot3Name, agent.slot3Description)
-            let ultSlot = (agent.slotUltName, agent.slotUltDescription)
-            
-//            abilities[agent.slot1Name]      = agent.slot1Description
-//            abilities[agent.slot2Name]      = agent.slot2Description
-//            abilities[agent.slot3Name]      = agent.slot3Description
-//            abilities[agent.slotUltName]    = agent.slotUltDescription
-            abilities.append(slotOne)
-            abilities.append(slotTwo)
-            abilities.append(slotThree)
-            abilities.append(ultSlot)
-            print(abilities)
-        }
-        print(abilities)
-        return abilities
-    }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "heroes", for: indexPath) as! ValorantHeroCell
-       // downloadImage(from: agentList[indexPath.row].displayIcon)
-        
+
         cell.heroNameLabel.text = agentList[indexPath.row].displayName
-        print(agentList[indexPath.row].displayName)
-        print(agentList[indexPath.row].descriptino)
-//        print(agentNamesArr[indexPath.row].displayName)
-//        print(agentNamesArr[indexPath.row].displayIcon)
-//        print(agentNamesArr[indexPath.row].description)
-        
         cell.heroImage.downloaded(from: agentList[indexPath.row].displayIcon)
-        
-        
-        
-        
-        
 
         cell.heroNameLabel.textColor = .systemOrange
         cell.heroImage.clipsToBounds = true
@@ -131,26 +97,12 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = valorantAgentsCollectionView.cellForItem(at: indexPath) as! ValorantHeroCell
-        let iconList = [UIImage]()
         
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? AgentDetailsVC {
-            detailVC.agentDescription = agentList[indexPath.row].descriptino
+            detailVC.agentDescription = agentList[indexPath.row].description
             detailVC.image = cell.heroImage.image!
             detailVC.title = agentList[indexPath.row].displayName
-            detailVC.agentUlt = agentList[indexPath.row].slotUltName
-            detailVC.agentAbilityThree = agentList[indexPath.row].slot3Name
-            detailVC.agentAbilityTwo = agentList[indexPath.row].slot2Name
-            detailVC.agentAbilityOne = agentList[indexPath.row].slot1Name
-            detailVC.agentAbilityOneDescription = agentList[indexPath.row].slot1Description
-            detailVC.agentAbilityTwoDescription = agentList[indexPath.row].slot2Description
-            detailVC.agentAbilityThreeDescription = agentList[indexPath.row].slot3Description
-            detailVC.agentAbilityUltDescription = agentList[indexPath.row].slotUltDescription
-            detailVC.agentAbilitiesList = agentList[indexPath.row].allAgentsAbilities
-            
-           // detailVC.abilityIcons = agentList[indexPath.row].abilityIcons
-            
-            
-
+            detailVC.agentData = agentList[indexPath.row].abilities
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
         collectionView.deselectItem(at: indexPath, animated: true)

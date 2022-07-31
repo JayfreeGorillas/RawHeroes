@@ -8,10 +8,10 @@
 import Foundation
 
 struct AllData: Decodable {
-    let data: [AgentData]
+    let data: [Agent]
 }
 
-struct AgentData: Decodable {
+struct Agent: Decodable {
 // taking of serialized object(JSON) and transforms into in memory object - Decodable
 // serialization represantation of in memory objects - Encodable
     let displayName: String
@@ -19,27 +19,30 @@ struct AgentData: Decodable {
     let displayIcon: URL
    // let fullPortraitV2: URL
     //let role: AgentRole
-    let abilities: [AgentAbilities]
+    let abilities: [AgentAbility]
     //extend this to get more data
 }
 
-struct AgentRole: Decodable {
-    let displayName: String
-}
+//struct AgentRole: Decodable {
+//    let displayName: String
+//}
 
 
-struct AgentAbilities: Decodable {
+struct AgentAbility: Decodable, Equatable {
     let slot: String
     let displayName: String
     let description: String
     let displayIcon: URL?
-    
-//    init(from decoder: Decoder) throws {
-//        <#code#>
-//    }
 }
 
 
 // data[0].role.displayName data[0].abilities[0].slot
 // data[19].abilities[4].displayIcon
-
+// Equatable example for comparing agent abilities on slot name only
+//  static func == (lhs: AgentAbilities, rhs: AgentAbilities) -> Bool {
+//
+//      return lhs.slot == rhs.slot
+//    }
+//    init(from decoder: Decoder) throws {
+//        dsds
+//    }

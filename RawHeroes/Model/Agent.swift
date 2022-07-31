@@ -7,31 +7,27 @@
 
 import Foundation
 import UIKit
-
-struct Agent {
-    var displayName: String
-    var descriptino: String
-    var displayIcon: URL
-//    var slot1Icon: URL
-    var slot1Name: String
-    var slot1Description: String
-  //  var slot2Icon: URL
-    var slot2Name: String
-    var slot2Description: String
-  //  var slot3Icon: URL
-    var slot3Name: String
-    var slot3Description: String
-   // var slotUltIcon: URL
-    var slotUltName: String
-    var slotUltDescription: String
-    var allAgentsAbilities: [(URL?,String,String)]
-    //var abilities: [Moves]
-    //var abilityIcons: [URL]
-    
-  
-    
-   
-}
+//
+//struct Agent {
+//    var displayName: String
+//    var descriptino: String
+//    var displayIcon: URL
+////    var slot1Icon: URL
+//    var slot1Name: String
+//    var slot1Description: String
+//  //  var slot2Icon: URL
+//    var slot2Name: String
+//    var slot2Description: String
+//  //  var slot3Icon: URL
+//    var slot3Name: String
+//    var slot3Description: String
+//   // var slotUltIcon: URL
+//    var slotUltName: String
+//    var slotUltDescription: String
+//    var allAgentsAbilities: [(URL?,String,String)]
+//    //var abilities: [Moves]
+//    //var abilityIcons: [URL]
+//}
 
 
 //struct Moves {

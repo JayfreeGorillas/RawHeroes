@@ -12,7 +12,7 @@ class AbilityCell: UITableViewCell {
      let abilityNameLabel = UILabel()
      let abilityDescriptionLabel = UILabel()
      let icon = UIImageView()
-     let playButton = UIButton()
+     //let playButton = UIButton()
     
     // add a subviews() in the contentView
     // constraints between all the items
@@ -25,17 +25,17 @@ class AbilityCell: UITableViewCell {
         contentView.addSubview(abilityNameLabel)
         contentView.addSubview(abilityDescriptionLabel)
         contentView.addSubview(icon)
-        contentView.addSubview(playButton)
+        //contentView.addSubview(playButton)
         
         configureAbilityIcon()
         configureAbilityName()
         configureDescriptionLabels()
-        configureButton()
+        //configureButton()
         
         setAbilityIconConstraints()
         setNameConstraints()
         setDescriptionConstraints()
-        setButtonConstraints()
+        //setButtonConstraints()
     }
    
     
@@ -55,7 +55,7 @@ class AbilityCell: UITableViewCell {
       //  abilityDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         abilityDescriptionLabel.numberOfLines = 0
         abilityDescriptionLabel.adjustsFontSizeToFitWidth = true
-        //abilityDescriptionLabel.lineBreakMode = .byWordWrapping
+        abilityDescriptionLabel.lineBreakMode = .byWordWrapping
     }
     
     func configureAbilityIcon() {
@@ -63,21 +63,17 @@ class AbilityCell: UITableViewCell {
         icon.clipsToBounds = true
     }
     
-    func configureButton() {
-        playButton.layer.cornerRadius = 10
-        playButton.clipsToBounds = true
-    }
-    
+//    func configureButton() {
+//        playButton.layer.cornerRadius = 10
+//        playButton.clipsToBounds = true
+//    }
+  
     func setAbilityIconConstraints() {
-        NSLayoutConstraint.activate([
-        
-        
-        ])
         icon.translatesAutoresizingMaskIntoConstraints = false
         icon.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         icon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
-        icon.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        icon.widthAnchor.constraint(equalTo: icon.heightAnchor, multiplier: 16/9).isActive = true
+        icon.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        icon.widthAnchor.constraint(equalTo: icon.heightAnchor , multiplier: 16/9).isActive = true
         
     }
     
@@ -95,20 +91,21 @@ class AbilityCell: UITableViewCell {
     func setDescriptionConstraints() {
         abilityDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 //        abilityDescriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        abilityDescriptionLabel.topAnchor.constraint(equalTo: abilityNameLabel.bottomAnchor, constant: 2)
+        abilityDescriptionLabel.topAnchor.constraint(equalTo: abilityNameLabel.bottomAnchor, constant: 2).isActive = true
         abilityDescriptionLabel.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: 8).isActive = true
-        abilityDescriptionLabel.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        abilityDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        abilityDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+      //  abilityDescriptionLabel.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        abilityDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
 
     }
     
-    func setButtonConstraints() {
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        playButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        playButton.leadingAnchor.constraint(equalTo: abilityDescriptionLabel.trailingAnchor, constant: 8).isActive = true
-        playButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        playButton.widthAnchor.constraint(equalTo: playButton.heightAnchor, multiplier: 16/9).isActive = true
-        playButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
-    }
+//    func setButtonConstraints() {
+//        playButton.translatesAutoresizingMaskIntoConstraints = false
+//        playButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        playButton.leadingAnchor.constraint(equalTo: abilityDescriptionLabel.trailingAnchor, constant: 8).isActive = true
+//        playButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//        playButton.widthAnchor.constraint(equalTo: playButton.heightAnchor, multiplier: 16/9).isActive = true
+//        playButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+//    }
     
 }

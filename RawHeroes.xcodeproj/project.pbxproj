@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		FE0182E52808484D009DF84E /* AgentDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0182E42808484D009DF84E /* AgentDetailsVC.swift */; };
 		FE6197F9280EF843009269A8 /* AgentAbilitiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECFBC06280E0285005C0145 /* AgentAbilitiesCell.xib */; };
+		FE628239289A239000EA46E2 /* WeaponsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE628238289A239000EA46E2 /* WeaponsViewController.swift */; };
+		FE62823B289A255600EA46E2 /* WeaponData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62823A289A255600EA46E2 /* WeaponData.swift */; };
+		FE62823D289A2AFA00EA46E2 /* WeaponAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62823C289A2AFA00EA46E2 /* WeaponAPI.swift */; };
+		FE62823F289A2CCE00EA46E2 /* WeaponStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62823E289A2CCE00EA46E2 /* WeaponStore.swift */; };
 		FE8A4AA227FE49D100DAE4F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AA127FE49D100DAE4F0 /* AppDelegate.swift */; };
 		FE8A4AA427FE49D100DAE4F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AA327FE49D100DAE4F0 /* SceneDelegate.swift */; };
 		FE8A4AA627FE49D100DAE4F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AA527FE49D100DAE4F0 /* ViewController.swift */; };
@@ -46,6 +50,10 @@
 
 /* Begin PBXFileReference section */
 		FE0182E42808484D009DF84E /* AgentDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDetailsVC.swift; sourceTree = "<group>"; };
+		FE628238289A239000EA46E2 /* WeaponsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponsViewController.swift; sourceTree = "<group>"; };
+		FE62823A289A255600EA46E2 /* WeaponData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponData.swift; sourceTree = "<group>"; };
+		FE62823C289A2AFA00EA46E2 /* WeaponAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponAPI.swift; sourceTree = "<group>"; };
+		FE62823E289A2CCE00EA46E2 /* WeaponStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponStore.swift; sourceTree = "<group>"; };
 		FE8A4A9E27FE49D100DAE4F0 /* RawHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RawHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8A4AA127FE49D100DAE4F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8A4AA327FE49D100DAE4F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,9 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				FECC0B8528028783009C3A60 /* AgentAPI.swift */,
+				FE62823C289A2AFA00EA46E2 /* WeaponAPI.swift */,
 				FE8A4AD827FF9CA700DAE4F0 /* AgentData.swift */,
+				FE62823A289A255600EA46E2 /* WeaponData.swift */,
 				FEF3B1ED286B81F100ABAEFF /* Agent.swift */,
 				FECC0B8728028A79009C3A60 /* AgentStore.swift */,
+				FE62823E289A2CCE00EA46E2 /* WeaponStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				FE8A4AA527FE49D100DAE4F0 /* ViewController.swift */,
+				FE628238289A239000EA46E2 /* WeaponsViewController.swift */,
 				FE0182E42808484D009DF84E /* AgentDetailsVC.swift */,
 			);
 			path = Controller;
@@ -318,16 +330,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE62823D289A2AFA00EA46E2 /* WeaponAPI.swift in Sources */,
 				FE8A4AD927FF9CA700DAE4F0 /* AgentData.swift in Sources */,
 				FEF3B1EE286B81F100ABAEFF /* Agent.swift in Sources */,
 				FE8A4AA627FE49D100DAE4F0 /* ViewController.swift in Sources */,
+				FE62823B289A255600EA46E2 /* WeaponData.swift in Sources */,
 				FECC0B8628028783009C3A60 /* AgentAPI.swift in Sources */,
 				FE8A4AA227FE49D100DAE4F0 /* AppDelegate.swift in Sources */,
 				FEF3B1F0286B86A700ABAEFF /* AbilityCell.swift in Sources */,
 				FE8A4AD527FF216200DAE4F0 /* ValorantHeroCell.swift in Sources */,
 				FE8A4AAC27FE49D100DAE4F0 /* RawHeroes.xcdatamodeld in Sources */,
+				FE62823F289A2CCE00EA46E2 /* WeaponStore.swift in Sources */,
 				FE0182E52808484D009DF84E /* AgentDetailsVC.swift in Sources */,
 				FECC0B8828028A79009C3A60 /* AgentStore.swift in Sources */,
+				FE628239289A239000EA46E2 /* WeaponsViewController.swift in Sources */,
 				FE8A4AA427FE49D100DAE4F0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-var agentList = [AllData]()
+//var agentList = [AllData]()
 //var agentAbilities = [(String, String)]()
 
 enum EndPoint: String {

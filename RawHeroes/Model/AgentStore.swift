@@ -35,5 +35,3 @@ class AgentStore {
         return AgentAPI.agents(fromJSON: jsonData)
     }
 }
-
-// data[19].abilities[4].displayIcon

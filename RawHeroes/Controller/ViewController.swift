@@ -8,22 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
- 
-    
-  
-    
 
     var bunchOfTesting = ["testing", "Testing", "123","456","papi"]
-//    var agentNamesArr = [AgentData]()
     var agentStore = AgentStore()
     var agentList = [Agent]()
-   // var agentAbilitiesList: [(String, String)] = []
     var abilityIcons = [URL]()
-   
-    
 
-    
     @IBOutlet var valorantAgentsCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,28 +21,35 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         valorantAgentsCollectionView.delegate   = self
         valorantAgentsCollectionView.dataSource = self
        // agentManager.fetchAgents()
+        
         agentStore.fetchAgents { (agentResults) in
             switch agentResults {
             case let .success(agentNames):
-               self.agentList = agentNames
-                
-       
-                
-                DispatchQueue.main.async { [self] in
+                // time independent                
+                DispatchQueue.main.async {  [self] in
                    self.agentList = agentNames
+                   self.findPlayableAgents(agents: agentList)
+                   self.valorantAgentsCollectionView.reloadData()
                 }
-                self.valorantAgentsCollectionView.reloadData()
             case let .failure(error):
-                print("error fetching shit \(error)")
+                print("error fetching \(error)")
             }
         }
         valorantAgentsCollectionView.reloadData()
-        
     }
     
 
+    func findPlayableAgents(agents: [Agent]) -> [Agent] {
+        var playableAgents = [Agent]()
+        for agent in agentList {
+            if agent.isPlayableCharacter {
+                playableAgents.append(agent)
+            }
+        }
+        agentList = playableAgents
+        return agentList
+    }
    
-    
     let flowLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 5
@@ -62,21 +59,15 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return agentList.count
     }
-    
-
-    
+ 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "heroes", for: indexPath) as! ValorantHeroCell
-
         cell.heroNameLabel.text = agentList[indexPath.row].displayName
         cell.heroImage.downloaded(from: agentList[indexPath.row].displayIcon)
-
         cell.heroNameLabel.textColor = .systemOrange
         cell.heroImage.clipsToBounds = true
         cell.heroImage.layer.cornerRadius = cell.heroImage.frame.height / 2
         cell.heroImage.contentMode = .scaleToFill
-//        cell.backgroundColor = .gray
-      
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -107,27 +98,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         }
         collectionView.deselectItem(at: indexPath, animated: true)
     }
-    
-    
-   
-
-
 }
-
-//agentStore.fetchAgents { (agentResults) in
-//    switch agentResults {
-//    case let .success(agentNames):
-//        self.agentNamesArr = agentNames
-//
-//
-//        DispatchQueue.main.async { [self] in
-//            self.agentNamesArr = agentNames
-//        }
-//        self.valorantAgentsCollectionView.reloadData()
-//    case let .failure(error):
-//        print("error fetching shit \(error)")
-//    }
-//}
 
 
 

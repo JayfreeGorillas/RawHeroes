@@ -12,24 +12,9 @@ class AgentDetailsVC: UIViewController {
     @IBOutlet var agentImage: UIImageView!
     @IBOutlet var agentDescriptionLabel: UILabel!
     var tableView = UITableView()
-    
     var image = UIImage()
     var agentData = [AgentAbility]()
     var agentDescription = ""
-    //var agentAbilityOne = "one"
-   // var agentAbilityOneDescription = ""
-   // var agentAbilityTwoDescription = ""
-   // var agentAbilityThreeDescription = ""
-   // var agentAbilityUltDescription = ""
-   // var agentAbilityTwo = ""
-    //var agentAbilityThree = ""
-    //var agentUlt = ""
-    //var abilityIcons = [URL]()
-    //var agentAbilitiesList: [(URL?,String, String)] = []
-    // [(url, string, string)]
-    
-    
-    // have to do this
 
    
     func configureTableView() {
@@ -37,15 +22,9 @@ class AgentDetailsVC: UIViewController {
         // set the delegate
         setTableViewProtocols()
         // set row height
-        
-        //tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.rowHeight = 100
-        
-        
-        
         // register cell
         tableView.register(AbilityCell.self, forCellReuseIdentifier: "heroes")
-        
         // set constraints
         tableViewConstraints()
     }
@@ -54,11 +33,7 @@ class AgentDetailsVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-    // MARK: - TODO pass all labels and descriptions inside the tableView if possible. not sure how to make it specific per agent yet....
-    
-    // MARK: - TODO Look into getting the display icon per ability.
-    
-    // Possibly think about adding a TableView to this view to show all agent abilities.
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,9 +43,6 @@ class AgentDetailsVC: UIViewController {
         configureTableView()
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableView.automaticDimension
-
-        //print(agentAbilitiesList)
-        
     }
 }
 
@@ -84,7 +56,6 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "heroes") as! AbilityCell
-        //cell.heroImage.downloaded(from: agentList[indexPath.row].displayIcon)
         guard let abilityIcon = agentData[indexPath.row].displayIcon else {
             print("no icon here")
            return cell
@@ -112,7 +83,6 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
         
     }
 }
-        
         
         
         extension UIColor {

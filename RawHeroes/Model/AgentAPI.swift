@@ -6,11 +6,8 @@
 //
 
 import Foundation
-//var agentList = [AllData]()
-//var agentAbilities = [(String, String)]()
 
 enum EndPoint: String {
-    // MARK:- Ask for help on endpoints for url
     case allAgentsEndpoint = "/agents"
     case badges = "/badges"
 }
@@ -44,10 +41,4 @@ struct AgentAPI {
         }
     }
     
-}
-
-extension AgentAPI {
-    func setAgentData() {
-        
-    }
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FE0182E52808484D009DF84E /* AgentDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0182E42808484D009DF84E /* AgentDetailsVC.swift */; };
-		FE6197F9280EF843009269A8 /* AgentAbilitiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECFBC06280E0285005C0145 /* AgentAbilitiesCell.xib */; };
 		FE628239289A239000EA46E2 /* WeaponsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE628238289A239000EA46E2 /* WeaponsViewController.swift */; };
 		FE62823B289A255600EA46E2 /* WeaponData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62823A289A255600EA46E2 /* WeaponData.swift */; };
 		FE62823D289A2AFA00EA46E2 /* WeaponAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62823C289A2AFA00EA46E2 /* WeaponAPI.swift */; };
@@ -30,7 +29,6 @@
 		FE8A4AD927FF9CA700DAE4F0 /* AgentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AD827FF9CA700DAE4F0 /* AgentData.swift */; };
 		FECC0B8628028783009C3A60 /* AgentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC0B8528028783009C3A60 /* AgentAPI.swift */; };
 		FECC0B8828028A79009C3A60 /* AgentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC0B8728028A79009C3A60 /* AgentStore.swift */; };
-		FEF3B1EE286B81F100ABAEFF /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3B1ED286B81F100ABAEFF /* Agent.swift */; };
 		FEF3B1F0286B86A700ABAEFF /* AbilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3B1EF286B86A700ABAEFF /* AbilityCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,8 +76,6 @@
 		FE8A4AD827FF9CA700DAE4F0 /* AgentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentData.swift; sourceTree = "<group>"; };
 		FECC0B8528028783009C3A60 /* AgentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentAPI.swift; sourceTree = "<group>"; };
 		FECC0B8728028A79009C3A60 /* AgentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStore.swift; sourceTree = "<group>"; };
-		FECFBC06280E0285005C0145 /* AgentAbilitiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentAbilitiesCell.xib; sourceTree = "<group>"; };
-		FEF3B1ED286B81F100ABAEFF /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		FEF3B1EF286B86A700ABAEFF /* AbilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +111,6 @@
 				FE62823C289A2AFA00EA46E2 /* WeaponAPI.swift */,
 				FE8A4AD827FF9CA700DAE4F0 /* AgentData.swift */,
 				FE62823A289A255600EA46E2 /* WeaponData.swift */,
-				FEF3B1ED286B81F100ABAEFF /* Agent.swift */,
 				FECC0B8728028A79009C3A60 /* AgentStore.swift */,
 				FE62823E289A2CCE00EA46E2 /* WeaponStore.swift */,
 			);
@@ -131,7 +126,6 @@
 				FE628242289B4B1100EA46E2 /* WeaponCell.swift */,
 				FE628243289B4B1100EA46E2 /* WeaponCell.xib */,
 				FE8A4AA727FE49D100DAE4F0 /* Main.storyboard */,
-				FECFBC06280E0285005C0145 /* AgentAbilitiesCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,7 +305,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE6197F9280EF843009269A8 /* AgentAbilitiesCell.xib in Resources */,
 				FE8A4AB127FE49D200DAE4F0 /* LaunchScreen.storyboard in Resources */,
 				FE8A4AAE27FE49D200DAE4F0 /* Assets.xcassets in Resources */,
 				FE628245289B4B1100EA46E2 /* WeaponCell.xib in Resources */,
@@ -342,7 +335,6 @@
 			files = (
 				FE62823D289A2AFA00EA46E2 /* WeaponAPI.swift in Sources */,
 				FE8A4AD927FF9CA700DAE4F0 /* AgentData.swift in Sources */,
-				FEF3B1EE286B81F100ABAEFF /* Agent.swift in Sources */,
 				FE8A4AA627FE49D100DAE4F0 /* ViewController.swift in Sources */,
 				FE62823B289A255600EA46E2 /* WeaponData.swift in Sources */,
 				FE628244289B4B1100EA46E2 /* WeaponCell.swift in Sources */,

@@ -13,6 +13,9 @@
 		FE62823B289A255600EA46E2 /* WeaponData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62823A289A255600EA46E2 /* WeaponData.swift */; };
 		FE62823D289A2AFA00EA46E2 /* WeaponAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62823C289A2AFA00EA46E2 /* WeaponAPI.swift */; };
 		FE62823F289A2CCE00EA46E2 /* WeaponStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62823E289A2CCE00EA46E2 /* WeaponStore.swift */; };
+		FE628244289B4B1100EA46E2 /* WeaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE628242289B4B1100EA46E2 /* WeaponCell.swift */; };
+		FE628245289B4B1100EA46E2 /* WeaponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE628243289B4B1100EA46E2 /* WeaponCell.xib */; };
+		FE628247289B625400EA46E2 /* WeaponDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE628246289B625400EA46E2 /* WeaponDetailVC.swift */; };
 		FE8A4AA227FE49D100DAE4F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AA127FE49D100DAE4F0 /* AppDelegate.swift */; };
 		FE8A4AA427FE49D100DAE4F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AA327FE49D100DAE4F0 /* SceneDelegate.swift */; };
 		FE8A4AA627FE49D100DAE4F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AA527FE49D100DAE4F0 /* ViewController.swift */; };
@@ -54,6 +57,9 @@
 		FE62823A289A255600EA46E2 /* WeaponData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponData.swift; sourceTree = "<group>"; };
 		FE62823C289A2AFA00EA46E2 /* WeaponAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponAPI.swift; sourceTree = "<group>"; };
 		FE62823E289A2CCE00EA46E2 /* WeaponStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponStore.swift; sourceTree = "<group>"; };
+		FE628242289B4B1100EA46E2 /* WeaponCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponCell.swift; sourceTree = "<group>"; };
+		FE628243289B4B1100EA46E2 /* WeaponCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeaponCell.xib; sourceTree = "<group>"; };
+		FE628246289B625400EA46E2 /* WeaponDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponDetailVC.swift; sourceTree = "<group>"; };
 		FE8A4A9E27FE49D100DAE4F0 /* RawHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RawHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8A4AA127FE49D100DAE4F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8A4AA327FE49D100DAE4F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,8 +127,10 @@
 			children = (
 				FE8A4AA327FE49D100DAE4F0 /* SceneDelegate.swift */,
 				FE8A4AD427FF216200DAE4F0 /* ValorantHeroCell.swift */,
-				FE8A4AA727FE49D100DAE4F0 /* Main.storyboard */,
 				FEF3B1EF286B86A700ABAEFF /* AbilityCell.swift */,
+				FE628242289B4B1100EA46E2 /* WeaponCell.swift */,
+				FE628243289B4B1100EA46E2 /* WeaponCell.xib */,
+				FE8A4AA727FE49D100DAE4F0 /* Main.storyboard */,
 				FECFBC06280E0285005C0145 /* AgentAbilitiesCell.xib */,
 			);
 			path = View;
@@ -133,6 +141,7 @@
 			children = (
 				FE8A4AA527FE49D100DAE4F0 /* ViewController.swift */,
 				FE628238289A239000EA46E2 /* WeaponsViewController.swift */,
+				FE628246289B625400EA46E2 /* WeaponDetailVC.swift */,
 				FE0182E42808484D009DF84E /* AgentDetailsVC.swift */,
 			);
 			path = Controller;
@@ -305,6 +314,7 @@
 				FE6197F9280EF843009269A8 /* AgentAbilitiesCell.xib in Resources */,
 				FE8A4AB127FE49D200DAE4F0 /* LaunchScreen.storyboard in Resources */,
 				FE8A4AAE27FE49D200DAE4F0 /* Assets.xcassets in Resources */,
+				FE628245289B4B1100EA46E2 /* WeaponCell.xib in Resources */,
 				FE8A4AA927FE49D100DAE4F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +345,7 @@
 				FEF3B1EE286B81F100ABAEFF /* Agent.swift in Sources */,
 				FE8A4AA627FE49D100DAE4F0 /* ViewController.swift in Sources */,
 				FE62823B289A255600EA46E2 /* WeaponData.swift in Sources */,
+				FE628244289B4B1100EA46E2 /* WeaponCell.swift in Sources */,
 				FECC0B8628028783009C3A60 /* AgentAPI.swift in Sources */,
 				FE8A4AA227FE49D100DAE4F0 /* AppDelegate.swift in Sources */,
 				FEF3B1F0286B86A700ABAEFF /* AbilityCell.swift in Sources */,
@@ -344,6 +355,7 @@
 				FE0182E52808484D009DF84E /* AgentDetailsVC.swift in Sources */,
 				FECC0B8828028A79009C3A60 /* AgentStore.swift in Sources */,
 				FE628239289A239000EA46E2 /* WeaponsViewController.swift in Sources */,
+				FE628247289B625400EA46E2 /* WeaponDetailVC.swift in Sources */,
 				FE8A4AA427FE49D100DAE4F0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

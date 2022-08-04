@@ -36,7 +36,6 @@ struct AgentAPI {
         let decoder = JSONDecoder()
         
         do {
-            
             let agentResponse = try decoder.decode(AllData.self, from: data)
             
             return .success(agentResponse.data)

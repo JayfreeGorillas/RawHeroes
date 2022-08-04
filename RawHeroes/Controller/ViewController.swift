@@ -18,7 +18,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
 //    var agentNamesArr = [AgentData]()
     var agentStore = AgentStore()
     var agentList = [Agent]()
-    var agentAbilitiesList: [(String, String)] = []
+   // var agentAbilitiesList: [(String, String)] = []
     var abilityIcons = [URL]()
    
     

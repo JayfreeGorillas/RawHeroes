@@ -14,8 +14,13 @@ struct AllWeaponData: Decodable {
 struct Weapon: Decodable {
     let displayName: String
     let displayIcon: URL
+    let skins: [Skins]
 }
 
+struct Skins: Decodable {
+    let displayName: String
+    let displayIcon: URL?
+}
 // skins here
 //MARK: todo - add the skins for each weapon
 /*

@@ -16,16 +16,16 @@ class AgentDetailsVC: UIViewController {
     var image = UIImage()
     var agentData = [AgentAbility]()
     var agentDescription = ""
-    var agentAbilityOne = "one"
-    var agentAbilityOneDescription = ""
-    var agentAbilityTwoDescription = ""
-    var agentAbilityThreeDescription = ""
-    var agentAbilityUltDescription = ""
-    var agentAbilityTwo = ""
-    var agentAbilityThree = ""
-    var agentUlt = ""
-    var abilityIcons = [URL]()
-    var agentAbilitiesList: [(URL?,String, String)] = []
+    //var agentAbilityOne = "one"
+   // var agentAbilityOneDescription = ""
+   // var agentAbilityTwoDescription = ""
+   // var agentAbilityThreeDescription = ""
+   // var agentAbilityUltDescription = ""
+   // var agentAbilityTwo = ""
+    //var agentAbilityThree = ""
+    //var agentUlt = ""
+    //var abilityIcons = [URL]()
+    //var agentAbilitiesList: [(URL?,String, String)] = []
     // [(url, string, string)]
     
     
@@ -69,7 +69,7 @@ class AgentDetailsVC: UIViewController {
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableView.automaticDimension
 
-        print(agentAbilitiesList)
+        //print(agentAbilitiesList)
         
     }
 }
@@ -109,6 +109,7 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.backgroundColor = .systemGray
+        
     }
 }
         

@@ -34,8 +34,8 @@ struct AgentAPI {
         
         do {
             let agentResponse = try decoder.decode(AllData.self, from: data)
-            
             return .success(agentResponse.data)
+            
         } catch {
             return .failure(error)
         }

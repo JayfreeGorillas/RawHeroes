@@ -10,8 +10,9 @@ import UIKit
 class WeaponCell: UITableViewCell {
 
     @IBOutlet var weaponImage: UIImageView!
-    
     @IBOutlet var weaponName: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,7 +21,6 @@ class WeaponCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
 }

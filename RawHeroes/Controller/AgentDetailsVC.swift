@@ -69,7 +69,6 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
         cell.abilityDescriptionLabel.text = agentData[indexPath.row].description
         cell.abilityDescriptionLabel.textColor = .white
 
-
         return cell
         }
     

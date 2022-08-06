@@ -59,7 +59,6 @@ class AbilityCell: UITableViewCell {
     
     func setNameConstraints() {
         abilityNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        //abilityNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         abilityNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2).isActive = true
         abilityNameLabel.bottomAnchor.constraint(equalTo: abilityDescriptionLabel.topAnchor, constant: -2).isActive = true
         abilityNameLabel.leadingAnchor.constraint(equalTo: abilityDescriptionLabel.leadingAnchor).isActive = true

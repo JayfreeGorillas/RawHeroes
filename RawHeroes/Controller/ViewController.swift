@@ -28,7 +28,8 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
                 // time independent                
                 DispatchQueue.main.async {  [self] in
                    self.agentList = agentNames
-                   self.findPlayableAgents(agents: agentList)
+                   //self.filterPlayableAgents(agents: agentList)
+                   self.agentList = self.agentList.filter(\.isPlayableCharacter)
                    self.valorantAgentsCollectionView.reloadData()
                 }
             case let .failure(error):
@@ -39,15 +40,20 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     }
     
 
-    func findPlayableAgents(agents: [Agent]) -> [Agent] {
-        var playableAgents = [Agent]()
-        for agent in agentList {
-            if agent.isPlayableCharacter {
-                playableAgents.append(agent)
-            }
-        }
-        agentList = playableAgents
-        return agentList
+    func filterPlayableAgents(agents: [Agent]) {
+        
+        //let filteredAgents = agents.filter { $0.isPlayableCharacter }
+        let filteredAgents = agents.filter(\.isPlayableCharacter)
+        let agentNames = agents.map(\.displayName)
+        let images = agents.map(\.displayIcon)
+        
+//        var playableAgents = [Agent]()
+//        for agent in agentList {
+//            if agent.isPlayableCharacter {
+//                playableAgents.append(agent)
+//            }
+//        }
+        agentList = filteredAgents
     }
    
     let flowLayout: UICollectionViewFlowLayout = {

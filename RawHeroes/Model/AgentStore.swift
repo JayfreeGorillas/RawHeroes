@@ -1,10 +1,3 @@
-//
-//  AgentStore.swift
-//  RawHeroes
-//
-//  Created by Josfry Barillas on 4/9/22.
-//
-
 import Foundation
 
 class AgentStore {
@@ -14,7 +7,6 @@ class AgentStore {
     }()
     
     func fetchAgents(completion: @escaping (Result<[Agent], Error>) -> Void) {
-        // escaping declared that the closure is going to live longer than the function I pass it too
         let url = AgentAPI.agentsURL
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) { (data, response, error) in

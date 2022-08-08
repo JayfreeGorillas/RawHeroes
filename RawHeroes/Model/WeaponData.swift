@@ -1,10 +1,3 @@
-//
-//  WeaponData.swift
-//  RawHeroes
-//
-//  Created by Josfry Barillas on 8/2/22.
-//
-
 import Foundation
 
 struct AllWeaponData: Decodable {

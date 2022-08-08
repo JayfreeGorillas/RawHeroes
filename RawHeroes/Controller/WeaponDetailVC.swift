@@ -1,15 +1,9 @@
-//
-//  WeaponDetailVC.swift
-//  RawHeroes
-//
-//  Created by Josfry Barillas on 8/3/22.
-//
-
 import UIKit
 
 class WeaponDetailVC: UIViewController {
     
     @IBOutlet var skinsTableView: UITableView!
+    var headerTitle = ""
     
     var weaponData = [Skins]()
     
@@ -17,23 +11,20 @@ class WeaponDetailVC: UIViewController {
         super.viewDidLoad()
         skinsTableView.delegate = self
         skinsTableView.dataSource = self
-        
+        title = headerTitle
         registerTableViewCells()
         skinsTableView.estimatedRowHeight = 85
         skinsTableView.rowHeight = UITableView.automaticDimension
         removeStandardSkins(weapons: weaponData)
-        //removeMeleesWithNoIcon(weapons: weaponData)
-        // Do any additional setup after loading the view.
     }
     
     func removeStandardSkins(weapons: [Skins]) {
-        var skins = [Skins]()
         let weaponSkinsToRemove = ["luxe knife", "prime guardian", "sovereign guardian", "melee", "standard"]
     
         let validSkins = weapons.filter { skin in
-            let hasIcon = (skin.displayIcon != nil)
+            guard skin.displayIcon != nil else { return false }
             return weaponSkinsToRemove.allSatisfy { removedSkin in
-                return !skin.displayName.lowercased().contains(removedSkin) && hasIcon
+                return !skin.displayName.lowercased().contains(removedSkin)
             }
         }
         weaponData = validSkins
@@ -66,8 +57,6 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = skinsTableView.cellForRow(at: indexPath) as? WeaponCell
         skinsTableView.deselectRow(at: indexPath, animated: true)
-        print(cell?.weaponName, cell?.weaponImage)
     }
 }

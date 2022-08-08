@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  RawHeroes
-//
-//  Created by Josfry Barillas on 4/6/22.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

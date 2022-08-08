@@ -1,10 +1,3 @@
-//
-//  AbilityCell.swift
-//  RawHeroes
-//
-//  Created by Josfry Barillas on 6/28/22.
-//
-
 import UIKit
 
 class AbilityCell: UITableViewCell {

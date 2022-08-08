@@ -1,10 +1,3 @@
-//
-//  WeaponStore.swift
-//  RawHeroes
-//
-//  Created by Josfry Barillas on 8/3/22.
-//
-
 import Foundation
 
 class WeaponStore {

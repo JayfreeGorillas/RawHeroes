@@ -1,10 +1,3 @@
-//
-//  AgentAPI.swift
-//  RawHeroes
-//
-//  Created by Josfry Barillas on 4/9/22.
-//
-
 import Foundation
 
 enum EndPoint: String {
@@ -24,7 +17,6 @@ struct AgentAPI {
     }
     
     static var agentsURL: URL {
-        
         return valorantURL(endPoint: .allAgentsEndpoint)
     }
     

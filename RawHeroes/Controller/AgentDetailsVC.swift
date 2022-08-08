@@ -1,10 +1,3 @@
-//
-//  AgentDetailsVC.swift
-//  RawHeroes
-//
-//  Created by Josfry Barillas on 4/14/22.
-//
-
 import UIKit
 
 class AgentDetailsVC: UIViewController {
@@ -18,15 +11,13 @@ class AgentDetailsVC: UIViewController {
 
    
     func configureTableView() {
-        view.addSubview(tableView)
-        // set the delegate
-        setTableViewProtocols()
-        // set row height
+        view.addSubview(tableView) // set the delegate
+    
+        setTableViewProtocols()   // set row height
         tableView.rowHeight = 100
-        // register cell
-        tableView.register(AbilityCell.self, forCellReuseIdentifier: "heroes")
-        // set constraints
-        tableViewConstraints()
+        tableView.register(AbilityCell.self, forCellReuseIdentifier: "heroes") // register cell
+        tableView.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
+        tableViewConstraints() // set constraints
     }
     
     func setTableViewProtocols() {
@@ -37,12 +28,14 @@ class AgentDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        agentImage.backgroundColor  = .systemOrange
         agentImage.image = image
         agentDescriptionLabel.text  = agentDescription
         configureTableView()
+        
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
+
     }
 }
 
@@ -61,9 +54,9 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
            return cell
         }
         cell.icon.downloaded(from: abilityIcon)
-        cell.icon.backgroundColor = UIColor(red: 158, green: 218, blue: 246)
-        cell.backgroundColor = .systemGray
-        cell.abilityNameLabel.textColor = .white
+        cell.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
+        cell.icon.backgroundColor = UIColor(red: 218, green: 60, blue: 32)
+        cell.abilityNameLabel.textColor = UIColor(red: 28, green: 28, blue: 30)
         cell.abilityNameLabel.font = .boldSystemFont(ofSize: 20)
         cell.abilityNameLabel.text = agentData[indexPath.row].displayName
         cell.abilityDescriptionLabel.text = agentData[indexPath.row].description
@@ -78,8 +71,6 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.backgroundColor = .systemGray
-        
     }
 }
         

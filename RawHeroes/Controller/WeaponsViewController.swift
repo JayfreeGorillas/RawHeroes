@@ -46,11 +46,11 @@ extension WeaponsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "WeaponCell") as? WeaponCell {
+            
             cell.weaponImage.downloaded(from: weaponList[indexPath.row].displayIcon)
             cell.weaponName.text = weaponList[indexPath.row].displayName
             return cell
         }
-        
         return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

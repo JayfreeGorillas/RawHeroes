@@ -48,9 +48,9 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "heroes", for: indexPath) as! ValorantHeroCell
+        cell.heroPortrait.downloaded(from: agentList[indexPath.row].fullPortraitV2!)
         cell.heroNameLabel.text = agentList[indexPath.row].displayName
         cell.heroImage.downloaded(from: agentList[indexPath.row].displayIcon)
-        print(agentList[indexPath.row].fullPortraitV2)
         cell.heroNameLabel.textColor = .white
         cell.heroImage.clipsToBounds = true
         cell.heroImage.layer.cornerRadius = cell.heroImage.frame.height / 2
@@ -75,10 +75,9 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = valorantAgentsCollectionView.cellForItem(at: indexPath) as! ValorantHeroCell
-        
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? AgentDetailsVC {
             detailVC.agentDescription = agentList[indexPath.row].description
-            detailVC.image = cell.heroImage.image!
+            detailVC.image = cell.heroPortrait.image!
             detailVC.title = agentList[indexPath.row].displayName
             detailVC.agentData = agentList[indexPath.row].abilities
             self.navigationController?.pushViewController(detailVC, animated: true)

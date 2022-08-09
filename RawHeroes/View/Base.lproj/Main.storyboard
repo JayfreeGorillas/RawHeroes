@@ -181,30 +181,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9iu-tC-CWY">
-                                <rect key="frame" x="113" y="207" width="188" height="223"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="223" id="OdP-iS-htc"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bg-hi-5Ei">
-                                <rect key="frame" x="37" y="438" width="340" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="340" id="BLo-Od-Pqy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dTj-ou-erm">
+                                <rect key="frame" x="37" y="54" width="340" height="278.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9iu-tC-CWY">
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="OdP-iS-htc"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bg-hi-5Ei">
+                                        <rect key="frame" x="0.0" y="258" width="340" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="340" id="BLo-Od-Pqy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5jV-Cf-RwS"/>
                         <color key="backgroundColor" red="0.1085905954" green="0.1082673594" blue="0.1193451509" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9iu-tC-CWY" firstAttribute="centerX" secondItem="XZk-Q0-rpo" secondAttribute="centerX" id="9rV-VX-lBe"/>
-                            <constraint firstItem="6bg-hi-5Ei" firstAttribute="centerY" secondItem="XZk-Q0-rpo" secondAttribute="centerY" id="ApB-C9-jRe"/>
-                            <constraint firstItem="9iu-tC-CWY" firstAttribute="leading" secondItem="5jV-Cf-RwS" secondAttribute="leading" constant="113" id="TRI-uH-zne"/>
-                            <constraint firstItem="6bg-hi-5Ei" firstAttribute="top" secondItem="9iu-tC-CWY" secondAttribute="bottom" constant="8" symbolic="YES" id="eOB-3M-rjx"/>
-                            <constraint firstItem="6bg-hi-5Ei" firstAttribute="centerX" secondItem="XZk-Q0-rpo" secondAttribute="centerX" id="ekY-hL-hhO"/>
+                            <constraint firstItem="dTj-ou-erm" firstAttribute="top" secondItem="5jV-Cf-RwS" secondAttribute="top" constant="10" id="Z0Q-4b-OH8"/>
+                            <constraint firstItem="dTj-ou-erm" firstAttribute="centerX" secondItem="XZk-Q0-rpo" secondAttribute="centerX" id="bdd-1a-jNa"/>
                         </constraints>
                     </view>
                     <connections>
@@ -266,13 +268,46 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="957.58928571428567"/>
         </scene>
+        <!--Weapon Skin ImageVC-->
+        <scene sceneID="KuK-lK-Ct7">
+            <objects>
+                <viewController storyboardIdentifier="skinVC" id="4pP-Wy-U1C" customClass="WeaponSkinImageVC" customModule="RawHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RfA-pO-XVR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JGd-wv-i5b">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" name="rawHeroesBackground"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xkj-fv-JXR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xkj-fv-JXR" firstAttribute="bottom" secondItem="JGd-wv-i5b" secondAttribute="bottom" id="6nX-eP-a5d"/>
+                            <constraint firstItem="JGd-wv-i5b" firstAttribute="top" secondItem="RfA-pO-XVR" secondAttribute="top" id="G5Q-Fb-eDe"/>
+                            <constraint firstItem="Xkj-fv-JXR" firstAttribute="trailing" secondItem="JGd-wv-i5b" secondAttribute="trailing" id="N4p-oN-VzK"/>
+                            <constraint firstItem="JGd-wv-i5b" firstAttribute="leading" secondItem="Xkj-fv-JXR" secondAttribute="leading" id="Rsg-36-lER"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="skinImageView" destination="JGd-wv-i5b" id="gNC-a9-akw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hQA-WV-g8P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2868" y="958"/>
+        </scene>
     </scenes>
     <resources>
         <image name="person.3.sequence" catalog="system" width="128" height="59"/>
         <image name="swift" catalog="system" width="128" height="113"/>
         <namedColor name="rawHeroesBackground">
-            <color red="0.1085905954" green="0.1082673594" blue="0.1193451509" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10899999737739563" green="0.1080000028014183" blue="0.11900000274181366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

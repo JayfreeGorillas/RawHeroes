@@ -6,6 +6,7 @@ class AgentDetailsVC: UIViewController {
     @IBOutlet var agentDescriptionLabel: UILabel!
     var tableView = UITableView()
     var image = UIImage()
+    var fullImage = UIImageView()
     var agentData = [AgentAbility]()
     var agentDescription = ""
 
@@ -56,7 +57,7 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
         cell.icon.downloaded(from: abilityIcon)
         cell.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
         cell.icon.backgroundColor = UIColor(red: 218, green: 60, blue: 32)
-        cell.abilityNameLabel.textColor = UIColor(red: 28, green: 28, blue: 30)
+        cell.abilityNameLabel.textColor = .white
         cell.abilityNameLabel.font = .boldSystemFont(ofSize: 20)
         cell.abilityNameLabel.text = agentData[indexPath.row].displayName
         cell.abilityDescriptionLabel.text = agentData[indexPath.row].description
@@ -64,10 +65,13 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
 
         return cell
         }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     func tableViewConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: agentDescriptionLabel.bottomAnchor, constant: 10).isActive = true
+        tableView.topAnchor.constraint(equalTo: agentDescriptionLabel.bottomAnchor, constant: 40).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

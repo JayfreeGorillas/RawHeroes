@@ -51,12 +51,27 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "WeaponSkinCell") as? WeaponCell {
             cell.weaponName.text = weaponData[indexPath.row].displayName
             cell.weaponImage.downloaded(from: weaponImage)
+         //   cell.fullSkin.downloaded(from: weaponImage)
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        skinsTableView.deselectRow(at: indexPath, animated: true)
+        let cell = WeaponCell()
+        guard let image = weaponData[indexPath.row].displayIcon else { return }
+        
+        if let weaponSkinVC = storyboard?.instantiateViewController(withIdentifier: "skinVC") as? WeaponSkinImageVC {
+            
+            DispatchQueue.main.async {
+                weaponSkinVC.skinImageView.downloaded(from: image)
+                weaponSkinVC.skinName = self.weaponData[indexPath.row].displayName
+            }
+            
+            skinsTableView.deselectRow(at: indexPath, animated: true)
+            self.navigationController?.pushViewController(weaponSkinVC, animated: true)
+            
+        }
+        
     }
 }

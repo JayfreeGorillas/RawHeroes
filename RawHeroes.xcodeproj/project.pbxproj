@@ -29,6 +29,7 @@
 		FE8A4AD927FF9CA700DAE4F0 /* AgentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AD827FF9CA700DAE4F0 /* AgentData.swift */; };
 		FECC0B8628028783009C3A60 /* AgentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC0B8528028783009C3A60 /* AgentAPI.swift */; };
 		FECC0B8828028A79009C3A60 /* AgentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC0B8728028A79009C3A60 /* AgentStore.swift */; };
+		FEE57E4F28A1C2A700310794 /* WeaponSkinImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE57E4E28A1C2A700310794 /* WeaponSkinImageVC.swift */; };
 		FEF3B1F0286B86A700ABAEFF /* AbilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3B1EF286B86A700ABAEFF /* AbilityCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		FE8A4AD827FF9CA700DAE4F0 /* AgentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentData.swift; sourceTree = "<group>"; };
 		FECC0B8528028783009C3A60 /* AgentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentAPI.swift; sourceTree = "<group>"; };
 		FECC0B8728028A79009C3A60 /* AgentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStore.swift; sourceTree = "<group>"; };
+		FEE57E4E28A1C2A700310794 /* WeaponSkinImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSkinImageVC.swift; sourceTree = "<group>"; };
 		FEF3B1EF286B86A700ABAEFF /* AbilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 				FE628238289A239000EA46E2 /* WeaponsViewController.swift */,
 				FE628246289B625400EA46E2 /* WeaponDetailVC.swift */,
 				FE0182E42808484D009DF84E /* AgentDetailsVC.swift */,
+				FEE57E4E28A1C2A700310794 /* WeaponSkinImageVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				FECC0B8628028783009C3A60 /* AgentAPI.swift in Sources */,
 				FE8A4AA227FE49D100DAE4F0 /* AppDelegate.swift in Sources */,
 				FEF3B1F0286B86A700ABAEFF /* AbilityCell.swift in Sources */,
+				FEE57E4F28A1C2A700310794 /* WeaponSkinImageVC.swift in Sources */,
 				FE8A4AD527FF216200DAE4F0 /* ValorantHeroCell.swift in Sources */,
 				FE8A4AAC27FE49D100DAE4F0 /* RawHeroes.xcdatamodeld in Sources */,
 				FE62823F289A2CCE00EA46E2 /* WeaponStore.swift in Sources */,

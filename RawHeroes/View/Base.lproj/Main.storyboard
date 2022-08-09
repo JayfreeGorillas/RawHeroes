@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Agents-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RawHeroes" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,16 +73,15 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="qu9-Cj-Us6">
-                        <nil key="title"/>
+                    <navigationItem key="navigationItem" title="Agents" id="qu9-Cj-Us6">
                         <leftBarButtonItems>
-                            <barButtonItem title="Duelists" id="MJU-70-b0E">
+                            <barButtonItem title="Duelist" id="MJU-70-b0E">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="chooseRole:" destination="BYZ-38-t0r" id="c5X-xj-yZf"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem tag="1" title="Initiators" id="wCj-9B-jOQ">
+                            <barButtonItem tag="1" title="Initiator" id="wCj-9B-jOQ">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="chooseRole:" destination="BYZ-38-t0r" id="uQz-hA-AXM"/>
@@ -90,13 +89,13 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem tag="3" title="Sentinels" id="dgA-dK-Acc">
+                            <barButtonItem tag="3" title="Sentinel" id="dgA-dK-Acc">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="chooseRole:" destination="BYZ-38-t0r" id="E9t-I8-7bc"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem tag="2" title="Controllers" id="DCM-ax-tcx">
+                            <barButtonItem tag="2" title="Controller" id="DCM-ax-tcx">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="chooseRole:" destination="BYZ-38-t0r" id="GFD-xy-ynq"/>
@@ -119,8 +118,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ahl-bx-7oY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Agents" image="person.3.sequence" catalog="system" id="QZ7-Wr-Fli"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AQw-0e-N5K">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="AQw-0e-N5K">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

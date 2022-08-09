@@ -6,41 +6,70 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     var agentStore = AgentStore()
     var agentList = [Agent]()
     var fullListOfAgents = [Agent]()
+    var filteredAgents = [Agent]()
     var abilityIcons = [URL]()
-    var isFiltered = false
+    var duelistFiltered = false
+    var initiatorFiltered = false
+    var controllerFiltered = false
+    var sentinelFiltered = false
     
     @IBOutlet var valorantAgentsCollectionView: UICollectionView!
         
     
     @IBAction func chooseRole(_ sender: UIBarButtonItem) {
-        var filteredAgents = [Agent]()
+        
         
         
     
         
-        if sender.tag == 0 && isFiltered  {
-            isFiltered.toggle()
+        if sender.tag == 0 && duelistFiltered  {
+            duelistFiltered.toggle() // turning off the filter on duelist
             filteredAgents = []
             agentList = fullListOfAgents
             valorantAgentsCollectionView.reloadData()
-        } else if sender.tag == 0 && isFiltered == false {
+        } else if sender.tag == 0 && duelistFiltered == false {
+            
             
             agentList.filter { agent in
-                guard agent.role?.displayName == "Duelist" else { return false }
+                guard agent.role?.displayName == sender.title else { return false }
                filteredAgents.append(agent)
                 return true
             }
-            isFiltered.toggle()
+            duelistFiltered.toggle()
+            sender.isSelected
             agentList = filteredAgents
             valorantAgentsCollectionView.reloadData()
             
             
             print(sender.tag)
             print(sender.title)
-        } else if sender.tag == 2 {
+        } else if sender.tag == 1 && initiatorFiltered {
+            initiatorFiltered.toggle()
+//            filteredAgents.removeAll { agent in
+//                guard agent.role?.displayName == sender.tag else {
+//                    return fals
+//                }
+//            }
+            agentList = fullListOfAgents
+            valorantAgentsCollectionView.reloadData()
             print(sender.tag)
             print(sender.title)
-        } else if sender.tag == 3 {
+        } else if sender.tag == 1 && initiatorFiltered == false {
+            
+            fullListOfAgents.filter { agent in
+                guard agent.role?.displayName == sender.title else { return false }
+                
+                if filteredAgents.count > 0 && duelistFiltered {
+                    filteredAgents.append(agent)
+                    return true
+                }
+                filteredAgents.append(agent)
+                return true
+            }
+            
+            initiatorFiltered.toggle()
+            agentList = filteredAgents
+            valorantAgentsCollectionView.reloadData()
             print(sender.tag)
             print(sender.title)
         }

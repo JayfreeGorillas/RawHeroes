@@ -65,7 +65,6 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
             
             DispatchQueue.main.async {
                 weaponSkinVC.skinImageView.downloaded(from: image)
-                weaponSkinVC.skinName = self.weaponData[indexPath.row].displayName
             }
             
             skinsTableView.deselectRow(at: indexPath, animated: true)

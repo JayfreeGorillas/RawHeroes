@@ -6,6 +6,7 @@
       "size" : "20x20"
     },
     {
+      "filename" : "My project.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
@@ -16,6 +17,7 @@
       "size" : "29x29"
     },
     {
+      "filename" : "My project (1).jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
@@ -36,6 +38,7 @@
       "size" : "60x60"
     },
     {
+      "filename" : "My project (2).jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"

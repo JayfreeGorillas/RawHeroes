@@ -5,9 +5,61 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     var bunchOfTesting = ["testing", "Testing", "123","456","papi"]
     var agentStore = AgentStore()
     var agentList = [Agent]()
+    var fullListOfAgents = [Agent]()
     var abilityIcons = [URL]()
+    var isFiltered = false
     
     @IBOutlet var valorantAgentsCollectionView: UICollectionView!
+        
+    
+    @IBAction func chooseRole(_ sender: UIBarButtonItem) {
+        var filteredAgents = [Agent]()
+        
+        
+    
+        
+        if sender.tag == 0 && isFiltered  {
+            isFiltered.toggle()
+            filteredAgents = []
+            agentList = fullListOfAgents
+            valorantAgentsCollectionView.reloadData()
+        } else if sender.tag == 0 && isFiltered == false {
+            
+            agentList.filter { agent in
+                guard agent.role?.displayName == "Duelist" else { return false }
+               filteredAgents.append(agent)
+                return true
+            }
+            isFiltered.toggle()
+            agentList = filteredAgents
+            valorantAgentsCollectionView.reloadData()
+            
+            
+            print(sender.tag)
+            print(sender.title)
+        } else if sender.tag == 2 {
+            print(sender.tag)
+            print(sender.title)
+        } else if sender.tag == 3 {
+            print(sender.tag)
+            print(sender.title)
+        }
+    }
+    //    @IBAction func ChooseRoleAction(_ UIButton: Any) {
+//        print(sender)
+//        var isFilterOn: Bool = false
+//
+//
+//    }
+    
+//    func filterAgentsByRole(buttonTag: Int) {
+//        var filteredList = [Agent]()
+//        if buttonTag == 0 {
+//            agentList.filter { agent in
+//                if agent.role?
+//            }
+//        }
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         valorantAgentsCollectionView.delegate   = self
@@ -18,6 +70,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
                 
                 DispatchQueue.main.async {  [self] in
                     self.agentList = agentNames
+                    self.fullListOfAgents = self.agentList.filter(\.isPlayableCharacter)
                     self.agentList = self.agentList.filter(\.isPlayableCharacter)
                     self.valorantAgentsCollectionView.reloadData()
                 }
@@ -26,6 +79,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             }
         }
         valorantAgentsCollectionView.reloadData()
+        fullListOfAgents = agentList
     }
     
     

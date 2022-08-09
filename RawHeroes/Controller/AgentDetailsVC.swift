@@ -28,7 +28,7 @@ class AgentDetailsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        removePassives(abilities: agentData)
         agentImage.image = image
         agentDescriptionLabel.text  = agentDescription
         configureTableView()
@@ -38,6 +38,32 @@ class AgentDetailsVC: UIViewController {
         tableView.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
 
     }
+    
+    func removePassives(abilities: [AgentAbility]) {
+        var validAbilities = [AgentAbility]()
+            
+            for ability in abilities {
+                if ability.displayIcon != nil {
+                    validAbilities.append(ability)
+                } else {
+                    print("\(ability.description)")
+            }
+        }
+        agentData = validAbilities
+    }
+    /*
+     func removeStandardSkins(weapons: [Skins]) {
+         let weaponSkinsToRemove = ["luxe knife", "prime guardian", "sovereign guardian", "melee", "standard"]
+     
+         let validSkins = weapons.filter { skin in
+             guard skin.displayIcon != nil else { return false }
+             return weaponSkinsToRemove.allSatisfy { removedSkin in
+                 return !skin.displayName.lowercased().contains(removedSkin)
+             }
+         }
+         weaponData = validSkins
+     }
+     */
 }
 
 extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {

@@ -58,7 +58,6 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = WeaponCell()
         guard let image = weaponData[indexPath.row].displayIcon else { return }
         
         if let weaponSkinVC = storyboard?.instantiateViewController(withIdentifier: "skinVC") as? WeaponSkinImageVC {

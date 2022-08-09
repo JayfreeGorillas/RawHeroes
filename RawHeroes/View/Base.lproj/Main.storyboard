@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Agents-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RawHeroes" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,6 +25,11 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <view key="backgroundView" contentMode="scaleToFill" id="EjZ-YO-swl">
+                            <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" name="rawHeroesBackground"/>
+                        </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="heroes" id="uda-7s-r5Z" customClass="ValorantHeroCell" customModule="RawHeroes" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="154" height="155"/>
@@ -68,7 +73,37 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Agents" id="qu9-Cj-Us6"/>
+                    <navigationItem key="navigationItem" id="qu9-Cj-Us6">
+                        <nil key="title"/>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Duelists" id="MJU-70-b0E">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="chooseRole:" destination="BYZ-38-t0r" id="c5X-xj-yZf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem tag="1" title="Initiators" id="wCj-9B-jOQ">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="chooseRole:" destination="BYZ-38-t0r" id="uQz-hA-AXM"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem tag="3" title="Sentinels" id="dgA-dK-Acc">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="chooseRole:" destination="BYZ-38-t0r" id="E9t-I8-7bc"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem tag="2" title="Controllers" id="DCM-ax-tcx">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="chooseRole:" destination="BYZ-38-t0r" id="GFD-xy-ynq"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="valorantAgentsCollectionView" destination="Tq7-Fr-dD4" id="Gh7-Tf-2g5"/>
@@ -84,8 +119,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ahl-bx-7oY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Agents" image="person.3.sequence" catalog="system" id="QZ7-Wr-Fli"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="AQw-0e-N5K">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AQw-0e-N5K">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

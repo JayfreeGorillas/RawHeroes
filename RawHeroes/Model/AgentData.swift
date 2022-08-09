@@ -9,7 +9,7 @@ struct Agent: Decodable {
     let displayName: String
     let description: String
     let displayIcon: URL
-    //data[0].fullPortraitV2
+    let role: Role?
     let fullPortraitV2: URL?
     let abilities: [AgentAbility]
     let isPlayableCharacter: Bool
@@ -21,4 +21,8 @@ struct AgentAbility: Decodable, Equatable {
     let displayName: String
     let description: String
     let displayIcon: URL?
+}
+
+struct Role: Decodable {
+    let displayName: String?
 }

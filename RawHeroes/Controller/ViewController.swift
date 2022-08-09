@@ -11,40 +11,6 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
     @IBOutlet var valorantAgentsCollectionView: UICollectionView!
         
-    
-    @IBAction func chooseRole(_ sender: UIBarButtonItem) {
-        var filteredAgents = [Agent]()
-        
-        
-    
-        
-        if sender.tag == 0 && isFiltered  {
-            isFiltered.toggle()
-            filteredAgents = []
-            agentList = fullListOfAgents
-            valorantAgentsCollectionView.reloadData()
-        } else if sender.tag == 0 && isFiltered == false {
-            
-            agentList.filter { agent in
-                guard agent.role?.displayName == "Duelist" else { return false }
-               filteredAgents.append(agent)
-                return true
-            }
-            isFiltered.toggle()
-            agentList = filteredAgents
-            valorantAgentsCollectionView.reloadData()
-            
-            
-            print(sender.tag)
-            print(sender.title)
-        } else if sender.tag == 2 {
-            print(sender.tag)
-            print(sender.title)
-        } else if sender.tag == 3 {
-            print(sender.tag)
-            print(sender.title)
-        }
-    }
     //    @IBAction func ChooseRoleAction(_ UIButton: Any) {
 //        print(sender)
 //        var isFilterOn: Bool = false

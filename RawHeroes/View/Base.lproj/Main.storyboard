@@ -75,7 +75,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Agents" id="qu9-Cj-Us6">
                         <leftBarButtonItems>
-                            <barButtonItem title="Duelist" id="MJU-70-b0E">
+                            <barButtonItem title="Duelist" changesSelectionAsPrimaryAction="YES" id="MJU-70-b0E">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="chooseRole:" destination="BYZ-38-t0r" id="c5X-xj-yZf"/>

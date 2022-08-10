@@ -1,5 +1,19 @@
 import UIKit
 
+enum AgentStyle: Hashable, CaseIterable {
+    case duelist
+    case initiator
+    case controller
+    case sentinel
+}
+
+let agents = [Agent]() // All agent data
+let agentsByStyle = agents.reduce(into: [AgentStyle: [Agent]]()) { accumulator, nextAgent in
+    accumulator[nextAgent.style, default: []].append(nextAgent)
+}
+
+var currentAgentStyle: AgentStyle
+
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var bunchOfTesting = ["testing", "Testing", "123","456","papi"]
@@ -18,38 +32,29 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
     @IBAction func chooseRole(_ sender: UIBarButtonItem) {
         
-        
-        
-    
-        
         if sender.tag == 0 && duelistFiltered  {
             duelistFiltered.toggle() // turning off the filter on duelist
             filteredAgents = []
             agentList = fullListOfAgents
             valorantAgentsCollectionView.reloadData()
         } else if sender.tag == 0 && duelistFiltered == false {
-            
-            
+  
             agentList.filter { agent in
                 guard agent.role?.displayName == sender.title else { return false }
                filteredAgents.append(agent)
                 return true
             }
+            
             duelistFiltered.toggle()
             sender.isSelected
             agentList = filteredAgents
             valorantAgentsCollectionView.reloadData()
             
-            
             print(sender.tag)
             print(sender.title)
         } else if sender.tag == 1 && initiatorFiltered {
             initiatorFiltered.toggle()
-//            filteredAgents.removeAll { agent in
-//                guard agent.role?.displayName == sender.tag else {
-//                    return fals
-//                }
-//            }
+
             agentList = fullListOfAgents
             valorantAgentsCollectionView.reloadData()
             print(sender.tag)

@@ -7,12 +7,12 @@ enum AgentStyle: Hashable, CaseIterable {
     case sentinel
 }
 
-let agents = [Agent]() // All agent data
-let agentsByStyle = agents.reduce(into: [AgentStyle: [Agent]]()) { accumulator, nextAgent in
-    accumulator[nextAgent.style, default: []].append(nextAgent)
-}
-
-var currentAgentStyle: AgentStyle
+//let agents = [Agent]() // All agent data
+//let agentsByStyle = agents.reduce(into: [AgentStyle: [Agent]]()) { accumulator, nextAgent in
+//    accumulator[nextAgent.style, default: []].append(nextAgent)
+//}
+//
+//var currentAgentStyle: AgentStyle
 
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     

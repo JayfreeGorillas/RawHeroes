@@ -11,21 +11,6 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
     @IBOutlet var valorantAgentsCollectionView: UICollectionView!
         
-    //    @IBAction func ChooseRoleAction(_ UIButton: Any) {
-//        print(sender)
-//        var isFilterOn: Bool = false
-//
-//
-//    }
-    
-//    func filterAgentsByRole(buttonTag: Int) {
-//        var filteredList = [Agent]()
-//        if buttonTag == 0 {
-//            agentList.filter { agent in
-//                if agent.role?
-//            }
-//        }
-//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         valorantAgentsCollectionView.delegate   = self

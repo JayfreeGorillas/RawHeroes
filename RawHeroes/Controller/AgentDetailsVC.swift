@@ -97,7 +97,7 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableViewConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: agentDescriptionLabel.bottomAnchor, constant: 40).isActive = true
+        tableView.topAnchor.constraint(equalTo: agentDescriptionLabel.bottomAnchor, constant: 20).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

@@ -118,8 +118,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ahl-bx-7oY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Agents" image="person.3.sequence" catalog="system" id="QZ7-Wr-Fli"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="AQw-0e-N5K">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AQw-0e-N5K">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

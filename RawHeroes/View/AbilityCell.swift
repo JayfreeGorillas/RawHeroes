@@ -1,5 +1,16 @@
 import UIKit
-
+class AgentCell : UITableViewCell {
+    let agentImage = UIImageView()
+    let agentDescription = UILabel()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(agentImage)
+        contentView.addSubview(agentDescription)
+        
+        
+    }
+}
 class AbilityCell: UITableViewCell {
 
      let abilityNameLabel = UILabel()

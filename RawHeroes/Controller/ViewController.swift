@@ -115,3 +115,6 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
 }
+
+
+// use an enum to sort my agents its way coooooler

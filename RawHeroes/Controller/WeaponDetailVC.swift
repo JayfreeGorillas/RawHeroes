@@ -38,8 +38,15 @@ class WeaponDetailVC: UIViewController {
 
 
 extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
+    
+   
+    
+//    func tableView(_ tableView: UITableView,
+//    numberOfRowsInSection section: Int) -> Int
+//
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        weaponData.count
+      
+            return weaponData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +54,11 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
         guard let weaponImage = weaponData[indexPath.row].displayIcon else {
             return UITableViewCell()
         }
-        
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "agentDetails")
+            
+            
+        }
         if let cell = tableView.dequeueReusableCell(withIdentifier: "WeaponSkinCell") as? WeaponCell {
             cell.weaponName.text = weaponData[indexPath.row].displayName
             cell.weaponImage.downloaded(from: weaponImage)

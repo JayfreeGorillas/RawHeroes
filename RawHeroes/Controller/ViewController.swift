@@ -39,6 +39,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         
         agentList = filteredAgents
     }
+   
     
     let flowLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -85,6 +86,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             detailVC.image = cell.heroPortrait.image!
             detailVC.title = agentList[indexPath.row].displayName
             detailVC.agentData = agentList[indexPath.row].abilities
+            detailVC.agent = [agentList[indexPath.row]]
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
         collectionView.deselectItem(at: indexPath, animated: true)

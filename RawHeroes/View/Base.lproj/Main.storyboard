@@ -185,40 +185,9 @@
                     <view key="view" contentMode="scaleToFill" id="XZk-Q0-rpo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dTj-ou-erm">
-                                <rect key="frame" x="57" y="54" width="300" height="228.5"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9iu-tC-CWY">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="OdP-iS-htc"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bg-hi-5Ei">
-                                        <rect key="frame" x="0.0" y="208" width="300" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="BLo-Od-Pqy"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5jV-Cf-RwS"/>
                         <color key="backgroundColor" red="0.1085905954" green="0.1082673594" blue="0.1193451509" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="dTj-ou-erm" firstAttribute="top" secondItem="5jV-Cf-RwS" secondAttribute="top" constant="10" id="88d-wv-t7v"/>
-                            <constraint firstItem="dTj-ou-erm" firstAttribute="top" secondItem="5jV-Cf-RwS" secondAttribute="top" constant="10" id="Z0Q-4b-OH8"/>
-                            <constraint firstItem="dTj-ou-erm" firstAttribute="centerX" secondItem="XZk-Q0-rpo" secondAttribute="centerX" id="bdd-1a-jNa"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="agentDescriptionLabel" destination="6bg-hi-5Ei" id="QPf-AS-LX5"/>
-                        <outlet property="agentImage" destination="9iu-tC-CWY" id="AYQ-tD-41y"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="We5-F1-xGZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

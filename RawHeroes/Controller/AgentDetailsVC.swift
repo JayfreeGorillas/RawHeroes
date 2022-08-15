@@ -17,9 +17,10 @@ class AgentDetailsVC: UIViewController {
     
         setTableViewProtocols()   // set row height
         tableView.rowHeight = 100
+        tableView.register(AgentDetailCell.self, forCellReuseIdentifier: "agentDetail")
         
         tableView.register(AbilityCell.self, forCellReuseIdentifier: "heroes") // register cell
-        tableView.register(WeaponCell.self, forCellReuseIdentifier: "weaponCell")
+       
         tableView.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
         //tableView = UITableView(frame: self.tableView.frame, style: .grouped)
         tableViewConstraints() // set constraints
@@ -68,26 +69,26 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
-            return agent.count
+            return 1
         } else if (section == 1) || (section == 2) {
             return agentData.count
         }
         return agentData.count
     }
+     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-       
-     
-     
-        if let agentCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? WeaponCell {
-            agentCell.weaponImage.image = image
-            agentCell.weaponName.text = agent[indexPath.row].description
-            return agentCell
-        }
+            let agentCell = tableView.dequeueReusableCell(withIdentifier: "agentDetail") as! AgentDetailCell
+            agentCell.agentDescriptionLabel.text = agentDescription
+            agentCell.agentImage.image = image
+            agentCell.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
+            agentCell.selectionStyle = .none
         
             
-   
+            return agentCell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "heroes") as! AbilityCell
             
@@ -104,14 +105,15 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
             cell.abilityNameLabel.text = agentData[indexPath.row].displayName
             cell.abilityDescriptionLabel.text = agentData[indexPath.row].description
             cell.abilityDescriptionLabel.textColor = .white
+            cell.selectionStyle = .none
         return cell
         }
         return UITableViewCell()
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        print()
+        //tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     func tableViewConstraints() {

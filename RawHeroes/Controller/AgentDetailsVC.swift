@@ -6,6 +6,7 @@ class AgentDetailsVC: UIViewController {
     @IBOutlet var agentDescriptionLabel: UILabel!
     var tableView = UITableView()
     var image = UIImage()
+    var agent = [Agent]()
     var fullImage = UIImageView()
     var agentData = [AgentAbility]()
     var agentDescription = ""
@@ -16,8 +17,12 @@ class AgentDetailsVC: UIViewController {
     
         setTableViewProtocols()   // set row height
         tableView.rowHeight = 100
+        tableView.register(AgentDetailCell.self, forCellReuseIdentifier: "agentDetail")
+        
         tableView.register(AbilityCell.self, forCellReuseIdentifier: "heroes") // register cell
+       
         tableView.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
+        //tableView = UITableView(frame: self.tableView.frame, style: .grouped)
         tableViewConstraints() // set constraints
     }
     
@@ -25,18 +30,21 @@ class AgentDetailsVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    private func registerTableViewCells() {
+//        let agentFieldCell = UINib(nibName: "agentField", bundle: nil)
+//        self.tableView.register(agentFieldCell, forCellReuseIdentifier: "weaponCell")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         removePassives(abilities: agentData)
-        agentImage.image = image
-        agentDescriptionLabel.text  = agentDescription
+       // agentImage.image = image
+       // agentDescriptionLabel.text  = agentDescription
         configureTableView()
-        
+        registerTableViewCells()
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
-
+        
     }
     
     func removePassives(abilities: [AgentAbility]) {
@@ -51,53 +59,66 @@ class AgentDetailsVC: UIViewController {
         }
         agentData = validAbilities
     }
-    /*
-     func removeStandardSkins(weapons: [Skins]) {
-         let weaponSkinsToRemove = ["luxe knife", "prime guardian", "sovereign guardian", "melee", "standard"]
-     
-         let validSkins = weapons.filter { skin in
-             guard skin.displayIcon != nil else { return false }
-             return weaponSkinsToRemove.allSatisfy { removedSkin in
-                 return !skin.displayName.lowercased().contains(removedSkin)
-             }
-         }
-         weaponData = validSkins
-     }
-     */
+
 }
 // MARK: TODO CREATE A CUSTOM CELL FOR AGENT
 extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
     
-    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (section == 0) {
+            return 1
+        } else if (section == 1) || (section == 2) {
+            return agentData.count
+        }
         return agentData.count
+    }
+     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let agentCell = tableView.dequeueReusableCell(withIdentifier: "agentDetail") as! AgentDetailCell
+            agentCell.agentDescriptionLabel.text = agentDescription
+            agentCell.agentImage.image = image
+            agentCell.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
+            agentCell.selectionStyle = .none
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "heroes") as! AbilityCell
-        guard let abilityIcon = agentData[indexPath.row].displayIcon else {
-            print("no icon here")
-           return cell
-        }
-        cell.icon.downloaded(from: abilityIcon)
-        cell.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
-        cell.icon.backgroundColor = UIColor(red: 218, green: 60, blue: 32)
-        cell.abilityNameLabel.textColor = .white
-        cell.abilityNameLabel.font = .boldSystemFont(ofSize: 20)
-        cell.abilityNameLabel.text = agentData[indexPath.row].displayName
-        cell.abilityDescriptionLabel.text = agentData[indexPath.row].description
-        cell.abilityDescriptionLabel.textColor = .white
-
+            
+            return agentCell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "heroes") as! AbilityCell
+            
+            guard let abilityIcon = agentData[indexPath.row].displayIcon else {
+                print("no icon here")
+               return cell
+            }
+            
+            cell.icon.downloaded(from: abilityIcon)
+            cell.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
+            cell.icon.backgroundColor = UIColor(red: 218, green: 60, blue: 32)
+            cell.abilityNameLabel.textColor = .white
+            cell.abilityNameLabel.font = .boldSystemFont(ofSize: 20)
+            cell.abilityNameLabel.text = agentData[indexPath.row].displayName
+            cell.abilityDescriptionLabel.text = agentData[indexPath.row].description
+            cell.abilityDescriptionLabel.textColor = .white
+            cell.selectionStyle = .none
         return cell
         }
+        return UITableViewCell()
+        }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        //tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     func tableViewConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: agentDescriptionLabel.bottomAnchor, constant: 20).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

@@ -30,6 +30,7 @@
 		FECC0B8628028783009C3A60 /* AgentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC0B8528028783009C3A60 /* AgentAPI.swift */; };
 		FECC0B8828028A79009C3A60 /* AgentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC0B8728028A79009C3A60 /* AgentStore.swift */; };
 		FEE57E4F28A1C2A700310794 /* WeaponSkinImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE57E4E28A1C2A700310794 /* WeaponSkinImageVC.swift */; };
+		FEF3847728A8B600003BFA1B /* AgentDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3847628A8B600003BFA1B /* AgentDetailCell.swift */; };
 		FEF3B1F0286B86A700ABAEFF /* AbilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3B1EF286B86A700ABAEFF /* AbilityCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		FECC0B8528028783009C3A60 /* AgentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentAPI.swift; sourceTree = "<group>"; };
 		FECC0B8728028A79009C3A60 /* AgentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStore.swift; sourceTree = "<group>"; };
 		FEE57E4E28A1C2A700310794 /* WeaponSkinImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSkinImageVC.swift; sourceTree = "<group>"; };
+		FEF3847628A8B600003BFA1B /* AgentDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDetailCell.swift; sourceTree = "<group>"; };
 		FEF3B1EF286B86A700ABAEFF /* AbilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 				FE8A4AD427FF216200DAE4F0 /* ValorantHeroCell.swift */,
 				FEF3B1EF286B86A700ABAEFF /* AbilityCell.swift */,
 				FE628242289B4B1100EA46E2 /* WeaponCell.swift */,
+				FEF3847628A8B600003BFA1B /* AgentDetailCell.swift */,
 				FE628243289B4B1100EA46E2 /* WeaponCell.xib */,
 				FE8A4AA727FE49D100DAE4F0 /* Main.storyboard */,
 			);
@@ -350,6 +353,7 @@
 				FE62823F289A2CCE00EA46E2 /* WeaponStore.swift in Sources */,
 				FE0182E52808484D009DF84E /* AgentDetailsVC.swift in Sources */,
 				FECC0B8828028A79009C3A60 /* AgentStore.swift in Sources */,
+				FEF3847728A8B600003BFA1B /* AgentDetailCell.swift in Sources */,
 				FE628239289A239000EA46E2 /* WeaponsViewController.swift in Sources */,
 				FE628247289B625400EA46E2 /* WeaponDetailVC.swift in Sources */,
 				FE8A4AA427FE49D100DAE4F0 /* SceneDelegate.swift in Sources */,

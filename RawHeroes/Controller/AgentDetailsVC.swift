@@ -30,17 +30,13 @@ class AgentDetailsVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-    private func registerTableViewCells() {
-//        let agentFieldCell = UINib(nibName: "agentField", bundle: nil)
-//        self.tableView.register(agentFieldCell, forCellReuseIdentifier: "weaponCell")
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         removePassives(abilities: agentData)
-       // agentImage.image = image
-       // agentDescriptionLabel.text  = agentDescription
+
         configureTableView()
-        registerTableViewCells()
+       
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
@@ -49,17 +45,17 @@ class AgentDetailsVC: UIViewController {
     
     func removePassives(abilities: [AgentAbility]) {
         var validAbilities = [AgentAbility]()
-            
-            for ability in abilities {
-                if ability.displayIcon != nil {
-                    validAbilities.append(ability)
-                } else {
-                    print("\(ability.description)")
+        
+        for ability in abilities {
+            if ability.displayIcon != nil {
+                validAbilities.append(ability)
+            } else {
+                print("\(ability.description)")
             }
         }
         agentData = validAbilities
     }
-
+    
 }
 
 extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
@@ -108,7 +104,7 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
             cell.selectionStyle = .none
         return cell
         }
-        return UITableViewCell()
+        //return UITableViewCell()
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

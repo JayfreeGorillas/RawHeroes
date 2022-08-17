@@ -10,25 +10,22 @@ class WeaponsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.weaponTableView.delegate = self
-        self.weaponTableView.dataSource = self
-        self.registerTableViewCells()
+        weaponTableView.delegate = self
+        weaponTableView.dataSource = self
+        registerTableViewCells()
         weaponTableView.estimatedRowHeight = 85
         weaponTableView.rowHeight = UITableView.automaticDimension
         
-        weaponStore.fetchWeapons { (weaponResults) in
+        weaponStore.fetchWeapons { [weak self] (weaponResults) in
+            guard let self = self else { return }
             switch weaponResults {
             case let .success(weaponNames):
-                self.weaponList = weaponNames
-                
-                DispatchQueue.main.async { [self] in
+                DispatchQueue.main.async {
                     self.weaponList = weaponNames
-                    
+                    self.weaponTableView.reloadData()
                 }
-                self.weaponTableView.reloadData()
-                print(self.weaponList)
             case let .failure(error):
-                print("error fetching shit \(error)")
+                print("error fetching \(error)")
             }
         }
     }
@@ -46,7 +43,7 @@ extension WeaponsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "WeaponCell") as? WeaponCell {
-            
+
             cell.weaponImage.downloaded(from: weaponList[indexPath.row].displayIcon)
             cell.weaponName.text = weaponList[indexPath.row].displayName
             return cell

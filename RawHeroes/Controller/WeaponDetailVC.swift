@@ -20,7 +20,6 @@ class WeaponDetailVC: UIViewController {
     
     func removeStandardSkins(weapons: [Skins]) {
         let weaponSkinsToRemove = ["luxe knife", "prime guardian", "sovereign guardian", "melee", "standard"]
-    
         let validSkins = weapons.filter { skin in
             guard skin.displayIcon != nil else { return false }
             return weaponSkinsToRemove.allSatisfy { removedSkin in
@@ -39,14 +38,8 @@ class WeaponDetailVC: UIViewController {
 
 extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
     
-   
-    
-//    func tableView(_ tableView: UITableView,
-//    numberOfRowsInSection section: Int) -> Int
-//
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      
-            return weaponData.count
+             weaponData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +48,7 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "agentDetails")
+           // let cell = tableView.dequeueReusableCell(withIdentifier: "agentDetails")
             
             
         }

@@ -23,7 +23,6 @@ class AgentStore {
         guard let jsonData = data else {
             return .failure(error!)
         }
-        
         return AgentAPI.agents(fromJSON: jsonData)
     }
 }

@@ -17,7 +17,7 @@
 		FE628247289B625400EA46E2 /* WeaponDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE628246289B625400EA46E2 /* WeaponDetailVC.swift */; };
 		FE8A4AA227FE49D100DAE4F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AA127FE49D100DAE4F0 /* AppDelegate.swift */; };
 		FE8A4AA427FE49D100DAE4F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AA327FE49D100DAE4F0 /* SceneDelegate.swift */; };
-		FE8A4AA627FE49D100DAE4F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AA527FE49D100DAE4F0 /* ViewController.swift */; };
+		FE8A4AA627FE49D100DAE4F0 /* AgentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AA527FE49D100DAE4F0 /* AgentsViewController.swift */; };
 		FE8A4AA927FE49D100DAE4F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8A4AA727FE49D100DAE4F0 /* Main.storyboard */; };
 		FE8A4AAC27FE49D100DAE4F0 /* RawHeroes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE8A4AAA27FE49D100DAE4F0 /* RawHeroes.xcdatamodeld */; };
 		FE8A4AAE27FE49D200DAE4F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE8A4AAD27FE49D200DAE4F0 /* Assets.xcassets */; };
@@ -63,7 +63,7 @@
 		FE8A4A9E27FE49D100DAE4F0 /* RawHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RawHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8A4AA127FE49D100DAE4F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8A4AA327FE49D100DAE4F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FE8A4AA527FE49D100DAE4F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FE8A4AA527FE49D100DAE4F0 /* AgentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentsViewController.swift; sourceTree = "<group>"; };
 		FE8A4AA827FE49D100DAE4F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE8A4AAB27FE49D100DAE4F0 /* RawHeroes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RawHeroes.xcdatamodel; sourceTree = "<group>"; };
 		FE8A4AAD27FE49D200DAE4F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		FE14447B28007E8200D21C6D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FE8A4AA527FE49D100DAE4F0 /* ViewController.swift */,
+				FE8A4AA527FE49D100DAE4F0 /* AgentsViewController.swift */,
 				FE628238289A239000EA46E2 /* WeaponsViewController.swift */,
 				FE628246289B625400EA46E2 /* WeaponDetailVC.swift */,
 				FE0182E42808484D009DF84E /* AgentDetailsVC.swift */,
@@ -341,7 +341,7 @@
 			files = (
 				FE62823D289A2AFA00EA46E2 /* WeaponAPI.swift in Sources */,
 				FE8A4AD927FF9CA700DAE4F0 /* AgentData.swift in Sources */,
-				FE8A4AA627FE49D100DAE4F0 /* ViewController.swift in Sources */,
+				FE8A4AA627FE49D100DAE4F0 /* AgentsViewController.swift in Sources */,
 				FE62823B289A255600EA46E2 /* WeaponData.swift in Sources */,
 				FE628244289B4B1100EA46E2 /* WeaponCell.swift in Sources */,
 				FECC0B8628028783009C3A60 /* AgentAPI.swift in Sources */,

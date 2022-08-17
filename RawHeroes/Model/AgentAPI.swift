@@ -17,7 +17,7 @@ struct AgentAPI {
     }
     
     static var agentsURL: URL {
-        return valorantURL(endPoint: .allAgentsEndpoint)
+         valorantURL(endPoint: .allAgentsEndpoint)
     }
     
     
@@ -27,7 +27,6 @@ struct AgentAPI {
         do {
             let agentResponse = try decoder.decode(AllData.self, from: data)
             return .success(agentResponse.data)
-            
         } catch {
             return .failure(error)
         }

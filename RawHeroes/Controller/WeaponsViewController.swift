@@ -41,7 +41,7 @@ class WeaponsViewController: UIViewController {
 
 extension WeaponsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        weaponList.count
+       weaponList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

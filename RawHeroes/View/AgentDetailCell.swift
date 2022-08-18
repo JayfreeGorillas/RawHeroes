@@ -44,6 +44,6 @@ class AgentDetailCell: UITableViewCell {
         agentDescriptionLabel.topAnchor.constraint(equalTo: agentImage.bottomAnchor, constant: 10).isActive = true
         agentDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         agentDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        agentDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        agentDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
     }
 }

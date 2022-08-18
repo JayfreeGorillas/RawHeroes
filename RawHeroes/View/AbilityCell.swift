@@ -30,6 +30,8 @@ class AbilityCell: UITableViewCell {
         icon.downloaded(from: abilityIcon)
     }
     
+// MARK: - Configuring properties
+    
     func configureAbilityName() {
         abilityNameLabel.numberOfLines = 0
         abilityNameLabel.adjustsFontSizeToFitWidth = true
@@ -48,6 +50,8 @@ class AbilityCell: UITableViewCell {
         icon.layer.cornerRadius = 10
         icon.clipsToBounds = true
     }
+    
+//MARK: - AbilityCellConstraints
     
     func setAbilityIconConstraints() {
         icon.translatesAutoresizingMaskIntoConstraints = false

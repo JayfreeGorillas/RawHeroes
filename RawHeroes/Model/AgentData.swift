@@ -14,7 +14,6 @@ struct Agent: Decodable {
     let isPlayableCharacter: Bool
 }
 
-
 struct AgentAbility: Decodable, Equatable {
     let slot: String
     let displayName: String

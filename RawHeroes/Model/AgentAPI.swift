@@ -14,7 +14,7 @@ struct AgentAPI {
     static var agentsURL: URL {
         valorantURL(endPoint: .allAgentsEndpoint)
     }
-    
+    //MARK: DoTryCatch implementation
     
     static func agents(fromJSON data: Data) -> Result<[Agent], Error> {
         let decoder = JSONDecoder()

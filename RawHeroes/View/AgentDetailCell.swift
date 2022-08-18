@@ -15,7 +15,6 @@ class AgentDetailCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(agentImage)
         contentView.addSubview(agentDescriptionLabel)
-        
         configureAgentImage()
         configureDescriptionLabel()
         setAgentImageConstraints()

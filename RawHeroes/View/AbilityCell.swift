@@ -56,8 +56,7 @@ class AbilityCell: UITableViewCell {
         abilityNameLabel.bottomAnchor.constraint(equalTo: abilityDescriptionLabel.topAnchor, constant: -2).isActive = true
         abilityNameLabel.leadingAnchor.constraint(equalTo: abilityDescriptionLabel.leadingAnchor).isActive = true
         abilityNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        
+   
     }
     
     func setDescriptionConstraints() {

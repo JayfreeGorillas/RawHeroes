@@ -39,6 +39,7 @@ class AgentsViewController: UICollectionViewController {
             assertionFailure("valorant hero cell should not be nil")
             return UICollectionViewCell()
         }
+ 
         cell.setup(agent: agentList[indexPath.item])
         return cell
     }

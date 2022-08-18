@@ -25,15 +25,25 @@ class AbilityCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
+    func setup(abilities: AgentAbility) {
+        guard let abilityIcon = abilities.displayIcon else { return }
+        abilityNameLabel.text = abilities.displayName
+        abilityDescriptionLabel.text = abilities.description
+        icon.downloaded(from: abilityIcon)
+    }
+    
     func configureAbilityName() {
         abilityNameLabel.numberOfLines = 0
         abilityNameLabel.adjustsFontSizeToFitWidth = true
+        abilityNameLabel.font = .boldSystemFont(ofSize: 20)
+        abilityNameLabel.textColor = .white
     }
     
     func configureDescriptionLabels() {
         abilityDescriptionLabel.numberOfLines = 0
         abilityDescriptionLabel.adjustsFontSizeToFitWidth = true
         abilityDescriptionLabel.lineBreakMode = .byWordWrapping
+        abilityDescriptionLabel.textColor = .white
     }
     
     func configureAbilityIcon() {

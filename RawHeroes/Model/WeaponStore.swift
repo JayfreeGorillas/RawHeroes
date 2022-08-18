@@ -17,7 +17,7 @@ class WeaponStore {
         }
         task.resume()
     }
-
+    
     private func processWeaponRequest(data: Data?, error: Error?) -> Result<[Weapon], Error> {
         guard let jsonData = data else {
             return .failure(error!)

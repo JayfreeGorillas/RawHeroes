@@ -1,7 +1,7 @@
 import UIKit
 
 class AgentDetailsVC: UIViewController {
-
+    
     @IBOutlet var agentImage: UIImageView!
     @IBOutlet var agentDescriptionLabel: UILabel!
     var tableView = UITableView()
@@ -9,8 +9,8 @@ class AgentDetailsVC: UIViewController {
     var agent = [Agent]()
     var agentData = [AgentAbility]()
     var agentDescription = ""
-
-   
+    
+    
     func configureTableView() {
         view.addSubview(tableView) // set the delegate
         setTableViewProtocols()   // set row height
@@ -25,7 +25,7 @@ class AgentDetailsVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         removePassives(abilities: agentData)
@@ -38,7 +38,6 @@ class AgentDetailsVC: UIViewController {
     
     func removePassives(abilities: [AgentAbility]) {
         var validAbilities = [AgentAbility]()
-        
         for ability in abilities {
             if ability.displayIcon != nil {
                 validAbilities.append(ability)
@@ -65,7 +64,7 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
         return agentData.count
     }
     
-     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 40
     }
     
@@ -76,14 +75,12 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
             agentCell.agentImage.image = image
             agentCell.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
             agentCell.selectionStyle = .none
-            
             return agentCell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "heroes") as! AbilityCell
             cell.setup(abilities: agentData[indexPath.row])
             cell.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
             cell.icon.backgroundColor = UIColor(red: 218, green: 60, blue: 32)
-            
             cell.selectionStyle = .none
             return cell
         }
@@ -98,22 +95,21 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-        extension UIColor {
-           convenience init(red: Int, green: Int, blue: Int) {
-               assert(red >= 0 && red <= 255, "Invalid red component")
-               assert(green >= 0 && green <= 255, "Invalid green component")
-               assert(blue >= 0 && blue <= 255, "Invalid blue component")
-
-               self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-           }
-
-           convenience init(rgb: Int) {
-               self.init(
-                   red: (rgb >> 16) & 0xFF,
-                   green: (rgb >> 8) & 0xFF,
-                   blue: rgb & 0xFF
-               )
-           }
-        }
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
+}
 
 

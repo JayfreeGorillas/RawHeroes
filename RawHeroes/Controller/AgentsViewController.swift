@@ -39,7 +39,6 @@ class AgentsViewController: UICollectionViewController {
             assertionFailure("valorant hero cell should not be nil")
             return UICollectionViewCell()
         }
- 
         cell.setup(agent: agentList[indexPath.item])
         return cell
     }
@@ -57,7 +56,6 @@ class AgentsViewController: UICollectionViewController {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
-
 // MARK: - extension of UICollectionViewDelegateFlowLayout
 
 extension AgentsViewController: UICollectionViewDelegateFlowLayout {
@@ -78,9 +76,7 @@ extension AgentsViewController: UICollectionViewDelegateFlowLayout {
         1
     }
 }
-
 // MARK: -
-
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
         self.contentMode = mode
@@ -93,7 +89,6 @@ extension UIImageView {
             else { return }
             DispatchQueue.main.async() { [weak self] in
                 self?.image = image
-                
             }
         }.resume()
     }
@@ -103,8 +98,3 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
 }
-
-
-
-
-// use an enum to sort my agents its way coooooler

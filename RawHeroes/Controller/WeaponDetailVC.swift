@@ -4,7 +4,6 @@ class WeaponDetailVC: UIViewController {
     
     @IBOutlet var skinsTableView: UITableView!
     var headerTitle = ""
-    
     var weaponData = [Skins]()
     
     override func viewDidLoad() {
@@ -28,7 +27,7 @@ class WeaponDetailVC: UIViewController {
         }
         weaponData = validSkins
     }
-
+    
     private func registerTableViewCells() {
         let weaponFieldCell = UINib(nibName: "WeaponCell", bundle: nil)
         self.skinsTableView.register(weaponFieldCell, forCellReuseIdentifier: "WeaponSkinCell")
@@ -43,19 +42,13 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let weaponImage = weaponData[indexPath.row].displayIcon else {
             return UITableViewCell()
         }
-        if indexPath.section == 0 {
-           // let cell = tableView.dequeueReusableCell(withIdentifier: "agentDetails")
-            
-            
-        }
+
         if let cell = tableView.dequeueReusableCell(withIdentifier: "WeaponSkinCell") as? WeaponCell {
             cell.weaponName.text = weaponData[indexPath.row].displayName
             cell.weaponImage.downloaded(from: weaponImage)
-         //   cell.fullSkin.downloaded(from: weaponImage)
             return cell
         }
         return UITableViewCell()
@@ -63,17 +56,12 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let image = weaponData[indexPath.row].displayIcon else { return }
-        
         if let weaponSkinVC = storyboard?.instantiateViewController(withIdentifier: "skinVC") as? WeaponSkinImageVC {
-            
             DispatchQueue.main.async {
                 weaponSkinVC.skinImageView.downloaded(from: image)
             }
-            
             skinsTableView.deselectRow(at: indexPath, animated: true)
             self.navigationController?.pushViewController(weaponSkinVC, animated: true)
-            
         }
-        
     }
 }

@@ -10,7 +10,6 @@ class AgentStore {
         let url = AgentAPI.agentsURL
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) { (data, response, error) in
-            
             let result = self.processAgentRequest(data: data, error: error)
             OperationQueue.main.addOperation {
                 completion(result)
@@ -18,7 +17,7 @@ class AgentStore {
         }
         task.resume()
     }
-
+    
     private func processAgentRequest(data: Data?, error: Error?) -> Result<[Agent], Error> {
         guard let jsonData = data else {
             return .failure(error!)

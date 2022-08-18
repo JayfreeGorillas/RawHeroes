@@ -5,7 +5,6 @@ struct AllData: Decodable {
 }
 
 struct Agent: Decodable {
-
     let displayName: String
     let description: String
     let displayIcon: URL

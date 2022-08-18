@@ -1,21 +1,24 @@
 import UIKit
 
 class WeaponsViewController: UIViewController {
-
+    
     var weaponStore = WeaponStore()
     var weaponList = [Weapon]()
-    
     @IBOutlet var weaponTableView: UITableView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         weaponTableView.delegate = self
         weaponTableView.dataSource = self
         registerTableViewCells()
         weaponTableView.estimatedRowHeight = 85
         weaponTableView.rowHeight = UITableView.automaticDimension
-        
+        fetchWeapons()
+    }
+    
+    func fetchWeapons() {
         weaponStore.fetchWeapons { [weak self] (weaponResults) in
             guard let self = self else { return }
             switch weaponResults {
@@ -29,7 +32,7 @@ class WeaponsViewController: UIViewController {
             }
         }
     }
-   
+    
     private func registerTableViewCells() {
         let weaponFieldCell = UINib(nibName: "WeaponCell", bundle: nil)
         self.weaponTableView.register(weaponFieldCell, forCellReuseIdentifier: "WeaponCell")
@@ -43,15 +46,14 @@ extension WeaponsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "WeaponCell") as? WeaponCell {
-
             cell.weaponImage.downloaded(from: weaponList[indexPath.row].displayIcon)
             cell.weaponName.text = weaponList[indexPath.row].displayName
             return cell
         }
         return UITableViewCell()
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if let weaponDetailVC = storyboard?.instantiateViewController(withIdentifier: "weaponDetailVC") as? WeaponDetailVC {
             weaponDetailVC.weaponData = weaponList[indexPath.row].skins
             weaponDetailVC.headerTitle = weaponList[indexPath.row].displayName

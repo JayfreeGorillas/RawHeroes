@@ -7,22 +7,17 @@ class AgentDetailsVC: UIViewController {
     var tableView = UITableView()
     var image = UIImage()
     var agent = [Agent]()
-    var fullImage = UIImageView()
     var agentData = [AgentAbility]()
     var agentDescription = ""
 
    
     func configureTableView() {
         view.addSubview(tableView) // set the delegate
-    
         setTableViewProtocols()   // set row height
         tableView.rowHeight = 100
         tableView.register(AgentDetailCell.self, forCellReuseIdentifier: "agentDetail")
-        
         tableView.register(AbilityCell.self, forCellReuseIdentifier: "heroes") // register cell
-       
         tableView.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
-        //tableView = UITableView(frame: self.tableView.frame, style: .grouped)
         tableViewConstraints() // set constraints
     }
     
@@ -34,9 +29,7 @@ class AgentDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         removePassives(abilities: agentData)
-
         configureTableView()
-       
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
@@ -55,7 +48,6 @@ class AgentDetailsVC: UIViewController {
         }
         agentData = validAbilities
     }
-    
 }
 // MARK: TODO CREATE A CUSTOM CELL FOR AGENT
 extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
@@ -63,6 +55,7 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
             return 1
@@ -71,6 +64,7 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
         }
         return agentData.count
     }
+    
      func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 40
     }
@@ -82,34 +76,17 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
             agentCell.agentImage.image = image
             agentCell.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
             agentCell.selectionStyle = .none
-        
             
             return agentCell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "heroes") as! AbilityCell
-            
-            guard let abilityIcon = agentData[indexPath.row].displayIcon else {
-                print("no icon here")
-               return cell
-            }
-            
-            cell.icon.downloaded(from: abilityIcon)
+            cell.setup(abilities: agentData[indexPath.row])
             cell.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
             cell.icon.backgroundColor = UIColor(red: 218, green: 60, blue: 32)
-            cell.abilityNameLabel.textColor = .white
-            cell.abilityNameLabel.font = .boldSystemFont(ofSize: 20)
-            cell.abilityNameLabel.text = agentData[indexPath.row].displayName
-            cell.abilityDescriptionLabel.text = agentData[indexPath.row].description
-            cell.abilityDescriptionLabel.textColor = .white
+            
             cell.selectionStyle = .none
-        return cell
+            return cell
         }
-        //return UITableViewCell()
-        }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView.deselectRow(at: indexPath, animated: true)
-        
     }
     
     func tableViewConstraints() {
@@ -120,8 +97,7 @@ extension AgentDetailsVC: UITableViewDataSource, UITableViewDelegate {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
-        
-        
+
         extension UIColor {
            convenience init(red: Int, green: Int, blue: Int) {
                assert(red >= 0 && red <= 255, "Invalid red component")

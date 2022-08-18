@@ -55,7 +55,7 @@ class AbilityCell: UITableViewCell {
     
     func setAbilityIconConstraints() {
         icon.translatesAutoresizingMaskIntoConstraints = false
-        icon.topAnchor.constraint(equalTo: abilityNameLabel.bottomAnchor).isActive = true
+        icon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2).isActive = true
         icon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
         icon.heightAnchor.constraint(equalToConstant: 50).isActive = true
         icon.widthAnchor.constraint(equalTo: icon.heightAnchor , multiplier: 16/9).isActive = true
@@ -74,6 +74,6 @@ class AbilityCell: UITableViewCell {
         abilityDescriptionLabel.topAnchor.constraint(equalTo: abilityNameLabel.bottomAnchor, constant: 2).isActive = true
         abilityDescriptionLabel.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: 8).isActive = true
         abilityDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
-        abilityDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        abilityDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
     }
 }

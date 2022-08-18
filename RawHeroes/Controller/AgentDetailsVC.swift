@@ -10,7 +10,6 @@ class AgentDetailsVC: UIViewController {
     var agentData = [AgentAbility]()
     var agentDescription = ""
     
-    
     func configureTableView() {
         view.addSubview(tableView) // set the delegate
         setTableViewProtocols()   // set row height
@@ -33,7 +32,6 @@ class AgentDetailsVC: UIViewController {
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor(red: 28, green: 28, blue: 30)
-        
     }
     
     func removePassives(abilities: [AgentAbility]) {

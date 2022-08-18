@@ -34,7 +34,6 @@ class WeaponDetailVC: UIViewController {
     }
 }
 
-
 extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,15 +42,15 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let weaponImage = weaponData[indexPath.row].displayIcon else {
-            return UITableViewCell()
+             return UITableViewCell()
         }
-
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "WeaponSkinCell") as? WeaponCell {
             cell.weaponName.text = weaponData[indexPath.row].displayName
             cell.weaponImage.downloaded(from: weaponImage)
             return cell
         }
-        return UITableViewCell()
+        return  UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -60,6 +59,7 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
             DispatchQueue.main.async {
                 weaponSkinVC.skinImageView.downloaded(from: image)
             }
+            
             skinsTableView.deselectRow(at: indexPath, animated: true)
             self.navigationController?.pushViewController(weaponSkinVC, animated: true)
         }

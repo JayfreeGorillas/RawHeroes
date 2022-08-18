@@ -10,5 +10,6 @@ class WeaponCell: UITableViewCell {
     func setupWeapons(weapon: Weapon) {
         weaponImage.downloaded(from: weapon.displayIcon)
         weaponName.text = weapon.displayName
+        fullSkin.downloaded(from: weapon.displayIcon)
     }
 }

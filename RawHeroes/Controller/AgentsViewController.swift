@@ -47,6 +47,7 @@ class AgentsViewController: UICollectionViewController {
         let cell = collectionView.cellForItem(at: indexPath) as! ValorantHeroCell
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? AgentDetailsVC {
             detailVC.agentDescription = agentList[indexPath.row].description
+            // make an on an image optional
             detailVC.image = cell.heroPortrait.image!
             detailVC.title = agentList[indexPath.row].displayName
             detailVC.agentData = agentList[indexPath.row].abilities

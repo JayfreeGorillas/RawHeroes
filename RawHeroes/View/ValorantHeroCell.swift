@@ -7,7 +7,7 @@ class ValorantHeroCell: UICollectionViewCell {
     var heroPortrait = UIImageView()
     
     func setup(agent: Agent) {
-        guard let fullPortrait = agent.fullPortraitV2 else { return }
+        guard let fullPortrait = agent.fullPortrait else { return }
         heroImage.downloaded(from: agent.displayIcon)
         heroNameLabel.text = agent.displayName
         heroPortrait.downloaded(from: fullPortrait)

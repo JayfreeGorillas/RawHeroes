@@ -40,7 +40,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         } else if sender.tag == 0 && duelistFiltered == false {
   
             agentList.filter { agent in
-                guard agent.role?.displayName == sender.title else { return false }
+                guard agent.role?.displayName == sender.title else { return false } // user interface titles change
                filteredAgents.append(agent)
                 return true
             }
@@ -136,7 +136,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "heroes", for: indexPath) as! ValorantHeroCell
-        cell.heroPortrait.downloaded(from: agentList[indexPath.row].fullPortraitV2!)
+        cell.heroPortrait.downloaded(from: agentList[indexPath.row].fullPortrait!)
         cell.heroNameLabel.text = agentList[indexPath.row].displayName
         cell.heroImage.downloaded(from: agentList[indexPath.row].displayIcon)
         cell.heroNameLabel.textColor = .white

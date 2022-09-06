@@ -5,6 +5,8 @@ struct WeaponAPI {
     static func weapons(fromJSON data: Data) -> Result<[Weapon], Error> {
         
 // MARK: Result Type Imlementation
-        Result { try JSONDecoder().decode(AllWeaponData.self, from: data).data }
+        Result {
+            try JSONDecoder().decode(AllWeaponData.self, from: data).data
+        }
     }
 }

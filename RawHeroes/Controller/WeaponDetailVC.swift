@@ -59,7 +59,6 @@ extension WeaponDetailVC: UITableViewDelegate, UITableViewDataSource {
             DispatchQueue.main.async {
                 weaponSkinVC.skinImageView.downloaded(from: image)
             }
-            
             skinsTableView.deselectRow(at: indexPath, animated: true)
             self.navigationController?.pushViewController(weaponSkinVC, animated: true)
         }

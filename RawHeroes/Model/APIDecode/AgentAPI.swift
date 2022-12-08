@@ -19,10 +19,10 @@ struct AgentAPI {
     static func agents(fromJSON data: Data) -> Result<[Agent], Error> {
         let decoder = JSONDecoder()
         do {
-            let agentResponse = try decoder.decode(AllData.self, from: data)
+            let agentResponse = try decoder.decode(AllData.self, from: data) // errors that are exceptionable
             return .success(agentResponse.data)
         } catch {
-            return .failure(error)
+            return .failure(error) //
         }
     }
 }

@@ -14,7 +14,6 @@ class AgentsViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
-        
     }
     
     func fetchData() {
@@ -45,12 +44,12 @@ class AgentsViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! ValorantHeroCell
+        let cell = collectionView.cellForItem(at: indexPath) as? ValorantHeroCell
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? AgentDetailsVC {
             detailVC.agentDescription = agentList[indexPath.row].description
-            // make an on an image optional
-            guard let heroPortrait = cell.heroPortrait.image else { return }
-            // because v2 was adjusted on the api which made me crash because i had a ! on data from an api
+            
+            guard let heroPortrait = cell?.heroPortrait.image else { return }
+            
             detailVC.image = heroPortrait
             detailVC.title = agentList[indexPath.row].displayName
             detailVC.agentData = agentList[indexPath.row].abilities
@@ -60,23 +59,7 @@ class AgentsViewController: UICollectionViewController {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
-// MARK: - extension of UICollectionViewDelegateFlowLayout
-extension AgentsViewController {
-    func generateLayout() -> UICollectionViewCompositionalLayout {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0))
-        let fullPhotoItem = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalWidth(2/3))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: fullPhotoItem, count: 1)
-        
-        let section = NSCollectionLayoutSection(group: group)
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
-    }
-}
+
 extension AgentsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width

@@ -111,12 +111,10 @@
 		FE14447928007E6C00D21C6D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FECC0B8528028783009C3A60 /* AgentAPI.swift */,
-				FE62823C289A2AFA00EA46E2 /* WeaponAPI.swift */,
 				FE8A4AD827FF9CA700DAE4F0 /* AgentData.swift */,
 				FE62823A289A255600EA46E2 /* WeaponData.swift */,
-				FECC0B8728028A79009C3A60 /* AgentStore.swift */,
-				FE62823E289A2CCE00EA46E2 /* WeaponStore.swift */,
+				FEDC746528C7C1D6003AFBD4 /* APIDecode */,
+				FEDC746428C7C1B6003AFBD4 /* NetworkManager */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,12 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				FE8A4AA327FE49D100DAE4F0 /* SceneDelegate.swift */,
-				FE8A4AD427FF216200DAE4F0 /* ValorantHeroCell.swift */,
-				FEF3B1EF286B86A700ABAEFF /* AbilityCell.swift */,
-				FE628242289B4B1100EA46E2 /* WeaponCell.swift */,
-				FEF3847628A8B600003BFA1B /* AgentDetailCell.swift */,
-				FE628243289B4B1100EA46E2 /* WeaponCell.xib */,
 				FE8A4AA727FE49D100DAE4F0 /* Main.storyboard */,
+				FEDC746328C7C19B003AFBD4 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,6 +199,36 @@
 				FE8A4AC727FE49D300DAE4F0 /* RawHeroesUITestsLaunchTests.swift */,
 			);
 			path = RawHeroesUITests;
+			sourceTree = "<group>";
+		};
+		FEDC746328C7C19B003AFBD4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FE8A4AD427FF216200DAE4F0 /* ValorantHeroCell.swift */,
+				FEF3B1EF286B86A700ABAEFF /* AbilityCell.swift */,
+				FE628242289B4B1100EA46E2 /* WeaponCell.swift */,
+				FEF3847628A8B600003BFA1B /* AgentDetailCell.swift */,
+				FE628243289B4B1100EA46E2 /* WeaponCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FEDC746428C7C1B6003AFBD4 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				FECC0B8728028A79009C3A60 /* AgentStore.swift */,
+				FE62823E289A2CCE00EA46E2 /* WeaponStore.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		FEDC746528C7C1D6003AFBD4 /* APIDecode */ = {
+			isa = PBXGroup;
+			children = (
+				FECC0B8528028783009C3A60 /* AgentAPI.swift */,
+				FE62823C289A2AFA00EA46E2 /* WeaponAPI.swift */,
+			);
+			path = APIDecode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
